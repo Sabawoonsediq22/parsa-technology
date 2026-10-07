@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import ThemeToggle from "@/components/theme/theme-toggle";
 import { site } from "@/lib/content";
 
 export default function Header() {
@@ -78,6 +79,7 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Link
             href="/contact"
             className="hidden rounded-full border border-border px-4 py-2 text-sm transition-all hover:border-accent hover:bg-accent hover:text-white md:inline-block"

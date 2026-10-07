@@ -1,24 +1,52 @@
 @import "tailwindcss";
 
-@theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-muted: #a1a1aa;
-  --color-surface: #0a0a0b;
-  --color-elevated: #101012;
-  --color-border: #1c1c1f;
-  --color-accent: #f32e35;
+@custom-variant dark (&:where(.dark, .dark *));
 
+@theme inline {
+  --color-background: var(--app-background);
+  --color-foreground: var(--app-foreground);
+  --color-muted: var(--app-muted);
+  --color-surface: var(--app-surface);
+  --color-elevated: var(--app-elevated);
+  --color-border: var(--app-border);
+  --color-accent: var(--app-accent);
+}
+
+@theme {
   --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
+}
+
+/* Dark is the default theme: the palette lives on :root so it applies
+   before hydration and with JavaScript disabled. `.light` swaps it. */
+:root {
+  color-scheme: dark;
+  --app-background: #000000;
+  --app-foreground: #ffffff;
+  --app-muted: #a1a1aa;
+  --app-surface: #0a0a0b;
+  --app-elevated: #101012;
+  --app-border: #1c1c1f;
+  --app-accent: #f32e35;
+}
+
+.light {
+  color-scheme: light;
+  --app-background: #f0f8ff;
+  --app-foreground: #0b0b0c;
+  --app-muted: #52525b;
+  --app-surface: #f6f6f7;
+  --app-elevated: #eeeeef;
+  --app-border: #e4e4e7;
+  --app-accent: #e11d24;
 }
 
 @layer base {
   *,
   ::after,
   ::before {
-    border-color: var(--color-border);
+    border-color: var(--app-border);
   }
 
   html {
@@ -27,20 +55,20 @@
   }
 
   body {
-    background-color: var(--color-background);
-    color: var(--color-foreground);
+    background-color: var(--app-background);
+    color: var(--app-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: var(--color-accent);
+    background-color: var(--app-accent);
     color: #ffffff;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent);
+    outline: 2px solid var(--app-accent);
     outline-offset: 3px;
   }
 
@@ -71,7 +99,7 @@
   .eyebrow {
     font-size: 0.875rem;
     line-height: 1.25rem;
-    color: var(--color-muted);
+    color: var(--app-muted);
   }
 
   .display-title {
@@ -83,7 +111,7 @@
 
   .accent-italic {
     font-style: italic;
-    color: var(--color-accent);
+    color: var(--app-accent);
   }
 }
 
