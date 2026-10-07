@@ -1,1 +1,102 @@
 @import "tailwindcss";
+
+@theme {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-muted: #a1a1aa;
+  --color-surface: #0a0a0b;
+  --color-elevated: #101012;
+  --color-border: #1c1c1f;
+  --color-accent: #f32e35;
+
+  --font-display: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+}
+
+@layer base {
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+@layer components {
+  .shell {
+    margin-inline: auto;
+    width: 100%;
+    max-width: 1600px;
+  }
+
+  .section {
+    padding-block: 6rem;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section {
+      padding-block: 8rem;
+      padding-inline: 3rem;
+    }
+  }
+
+  .eyebrow {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--color-muted);
+  }
+
+  .display-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+
+  .accent-italic {
+    font-style: italic;
+    color: var(--color-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  ::after,
+  ::before {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

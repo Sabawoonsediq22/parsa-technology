@@ -1,9 +1,29 @@
-const page = () => {
-  return (
-    <div className="bg-black text-white rounded p-2 cursor-pointer selection:bg-red-600">
-      Hello Next.js!
-    </div>
-  )
-}
+import Hero from "@/components/home/hero";
+import Services from "@/components/home/services";
+import Projects from "@/components/home/projects";
+import Process from "@/components/home/process";
+import Stack from "@/components/home/stack";
+import Testimonials from "@/components/home/testimonials";
+import Insights from "@/components/home/insights";
+import Cta from "@/components/ui/cta";
 
-export default page;
+export default function HomePage() {
+  return (
+    <>
+      <Hero />
+      <Services />
+      <Projects />
+      <Process />
+      <Stack />
+      <Testimonials />
+      <Cta
+        headline={
+          <>
+            Have a <span className="accent-italic">project</span> to build?
+          </>
+        }
+      />
+      <Insights />
+    </>
+  );
+}
