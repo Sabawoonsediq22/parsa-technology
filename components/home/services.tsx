@@ -17,9 +17,6 @@ export default function Services() {
             <div className="group h-full bg-background p-8 transition-colors duration-300 hover:bg-accent/5 md:p-10 lg:p-12">
               <div className="mb-8 flex items-start justify-between">
                 <span className="text-sm text-muted">{service.index}</span>
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-border text-lg transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white">
-                  →
-                </span>
               </div>
               <h3 className="font-display text-2xl font-light md:text-3xl lg:text-4xl">
                 {service.title}

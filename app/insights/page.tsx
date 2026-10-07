@@ -11,7 +11,7 @@ import { articles, formatDate } from "@/lib/content";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Engineering essays and practical notes from Parsa Technology on software development, web technologies, UI/UX design, digital transformation and business software.",
+    "Practical write-ups from Parsa Technology on software development, web technologies, UI/UX design, digital transformation and business software.",
 };
 
 export default function InsightsPage() {
@@ -23,10 +23,10 @@ export default function InsightsPage() {
         label="Insights"
         title={
           <>
-            Notes from the <span className="accent-italic">team</span>.
+            Thinking in <span className="accent-italic">public</span>.
           </>
         }
-        intro="Engineering essays, longer pieces on the products we are proud of, and the occasional strong opinion — loosely held."
+        intro="Deep dives on the systems we build, write-ups of decisions we made on real projects, and the occasional opinion we are happy to defend."
       />
 
       <Section label="Featured article" title="Start here.">
@@ -80,10 +80,11 @@ export default function InsightsPage() {
       </Section>
 
       <Cta
-        label="Let's talk"
+        label="Say hello"
         headline={
           <>
-            Have an idea worth <span className="accent-italic">building</span>?
+            Working on something{" "}
+            <span className="accent-italic">interesting</span>?
           </>
         }
       />

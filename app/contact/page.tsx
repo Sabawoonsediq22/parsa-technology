@@ -38,11 +38,11 @@ export default function ContactPage() {
         label="Contact"
         title={
           <>
-            Tell us about your{" "}
-            <span className="accent-italic">project</span>.
+            Let&apos;s hear what you&apos;re{" "}
+            <span className="accent-italic">building</span>.
           </>
         }
-        intro="The more you can share, the better we can respond. We reply to every enquiry within two working days."
+        intro="Share as much or as little as you already have — a rough idea is enough to start. An engineer replies to every message within two working days."
       />
 
       <Section label="Contact information" title="Ways to reach us.">
@@ -119,7 +119,7 @@ export default function ContactPage() {
 
       <Section
         label="FAQ"
-        title="Common questions."
+        title="Before the first call."
         contentClassName="grid gap-10 md:grid-cols-12 md:gap-12"
       >
         <div className="md:col-span-4">

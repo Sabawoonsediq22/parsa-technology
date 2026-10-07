@@ -10,7 +10,7 @@ type CtaProps = {
 };
 
 export default function Cta({
-  label = "Let's talk",
+  label = "Say hello",
   headline,
   linkLabel = "Start a project",
   linkHref = "/contact",

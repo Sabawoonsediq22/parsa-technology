@@ -11,7 +11,7 @@ export default function Hero() {
   const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   return (
-    <section className="relative flex min-h-[100svh] flex-col justify-end px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-40">
+    <section className="relative flex min-h-svh flex-col justify-end px-6 pb-16 pt-32 md:px-12 md:pb-20 md:pt-40">
       <div className="shell">
         <motion.p
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}

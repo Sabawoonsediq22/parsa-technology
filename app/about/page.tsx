@@ -3,7 +3,7 @@ import PageHero from "@/components/ui/page-hero";
 import Section from "@/components/ui/section";
 import Cta from "@/components/ui/cta";
 import Reveal from "@/components/ui/reveal";
-import { coreValues, story, team, whyUs } from "@/lib/content";
+import { coreValues, story, whyUs } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -18,11 +18,11 @@ export default function AboutPage() {
         label="About Parsa Technology"
         title={
           <>
-            A software team for teams that ship{" "}
-            <span className="accent-italic">serious</span> things.
+            We stay small so the work stays{" "}
+            <span className="accent-italic">good</span>.
           </>
         }
-        intro="We are experienced software engineers, product designers and quality engineers who take on a handful of engagements at a time — so every client gets the senior team they met in the first conversation."
+        intro="Parsa Technology is a compact group of engineers, product designers and quality engineers running a limited number of projects at once — so nothing about your build gets handed down to people you have never met."
       />
 
       <Section label="Company story" title={story.lead}>
@@ -92,45 +92,12 @@ export default function AboutPage() {
         </div>
       </Section>
 
-      <Section label="Team overview" title="One team, five disciplines.">
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-border md:grid-cols-2 lg:grid-cols-3">
-          {team.map((member) => (
-            <div
-              key={member.title}
-              className="bg-background p-8 transition-colors duration-300 hover:bg-accent/5"
-            >
-              <span className="text-sm text-muted">{member.discipline}</span>
-              <h3 className="mt-6 font-display text-2xl font-light">
-                {member.title}
-              </h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                {member.description}
-              </p>
-            </div>
-          ))}
-          <div className="flex flex-col justify-between bg-elevated p-8">
-            <p className="text-xs uppercase tracking-widest text-accent">
-              Engagements
-            </p>
-            <div>
-              <p className="font-display text-3xl font-light leading-snug">
-                A handful at a time.
-              </p>
-              <p className="mt-3 text-sm leading-relaxed text-muted">
-                We keep our roster deliberately short so the people who scoped
-                your project are the people who build it.
-              </p>
-            </div>
-          </div>
-        </div>
-      </Section>
-
       <Cta
         label="Work with us"
         headline={
           <>
-            Sound like the{" "}
-            <span className="accent-italic">team for you</span>?
+            Think we should{" "}
+            <span className="accent-italic">work together</span>?
           </>
         }
         linkLabel="Get in touch"

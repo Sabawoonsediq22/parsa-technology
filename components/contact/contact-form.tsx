@@ -67,6 +67,15 @@ export default function ContactForm() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
+  const [selectedTypes, setSelectedTypes] = useState<string[]>([]);
+
+  function toggleType(type: string) {
+    setSelectedTypes((current) =>
+      current.includes(type)
+        ? current.filter((item) => item !== type)
+        : [...current, type],
+    );
+  }
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -97,6 +106,7 @@ export default function ContactForm() {
       setSending(false);
       setSent(true);
       form.reset();
+      setSelectedTypes([]);
     }, 700);
   }
 
@@ -133,22 +143,34 @@ export default function ContactForm() {
         optional
       />
 
-      <div className="sm:col-span-2">
-        <Field label="Project Type" name="projectType">
-          <select
-            id="projectType"
-            name="projectType"
-            className={`${inputClass} appearance-none [&>option]:bg-background [&>option]:text-foreground`}
-            defaultValue={projectTypes[0]}
-          >
-            {projectTypes.map((type) => (
-              <option key={type} value={type}>
+      <fieldset className="sm:col-span-2">
+        <legend className="mb-2 block text-sm text-muted">
+          Services{" "}
+          <span className="text-muted/60"> (select one or more)</span>
+        </legend>
+        <div className="flex flex-wrap gap-2">
+          {projectTypes.map((type) => {
+            const active = selectedTypes.includes(type);
+
+            return (
+              <button
+                key={type}
+                type="button"
+                aria-pressed={active}
+                onClick={() => toggleType(type)}
+                className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                  active
+                    ? "border-accent bg-accent text-white"
+                    : "border-border text-muted hover:border-accent hover:text-accent"
+                }`}
+              >
                 {type}
-              </option>
-            ))}
-          </select>
-        </Field>
-      </div>
+              </button>
+            );
+          })}
+        </div>
+        <input type="hidden" name="projectType" value={selectedTypes.join(", ")} />
+      </fieldset>
 
       <div className="sm:col-span-2">
         <Field

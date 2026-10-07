@@ -141,10 +141,11 @@ export default async function ArticlePage({ params }: Props) {
       </Section>
 
       <Cta
-        label="Let's talk"
+        label="Say hello"
         headline={
           <>
-            Have an idea worth <span className="accent-italic">building</span>?
+            Working on something{" "}
+            <span className="accent-italic">interesting</span>?
           </>
         }
       />

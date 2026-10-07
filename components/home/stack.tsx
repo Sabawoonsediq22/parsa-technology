@@ -14,10 +14,8 @@ export default function Stack() {
           </h2>
         </div>
         <p className="self-end text-sm leading-relaxed text-muted md:col-span-5 md:col-start-8 md:text-base">
-          We default to well-understood technology and reach for newer tools
-          only when there is a reason. Everything is typed end-to-end where we
-          can, and every stack decision is documented so your team can read why
-          it was made.
+          Dependable, well-understood tools by default. Newer technology joins
+          only when it solves something the rest cannot — and we document why.
         </p>
       </Reveal>
 

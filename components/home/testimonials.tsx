@@ -1,10 +1,11 @@
+import Image from "next/image";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/ui/reveal";
 import { testimonials } from "@/lib/content";
 
 export default function Testimonials() {
   return (
-    <Section label="In their words" title="Trusted by teams that ship.">
+    <Section label="What clients say" title="Trusted by teams that ship.">
       <div className="grid gap-8 md:grid-cols-3">
         {testimonials.map((testimonial, index) => (
           <Reveal key={testimonial.name} delay={index * 0.08} y={32}>
@@ -18,12 +19,21 @@ export default function Testimonials() {
               <blockquote className="mt-4 flex-1 text-base leading-relaxed md:text-lg">
                 {testimonial.quote}
               </blockquote>
-              <figcaption className="mt-8 border-t border-border pt-6">
-                <div className="font-display text-lg font-light">
-                  {testimonial.name}
-                </div>
-                <div className="mt-1 text-sm text-muted">
-                  {testimonial.role}
+              <figcaption className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+                <Image
+                  src={testimonial.photo}
+                  alt={testimonial.name}
+                  width={56}
+                  height={56}
+                  className="h-14 w-14 shrink-0 rounded-full object-cover"
+                />
+                <div>
+                  <div className="font-display text-lg font-light">
+                    {testimonial.name}
+                  </div>
+                  <div className="mt-1 text-sm text-muted">
+                    {testimonial.role}
+                  </div>
                 </div>
               </figcaption>
             </figure>

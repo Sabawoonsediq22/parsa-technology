@@ -1,6 +1,11 @@
+import type { StaticImageData } from "next/image";
+import shirazkhanPhoto from "@/components/home/images/shirazkhannaseri.jpg";
+import raqeebPhoto from "@/components/home/images/raqeeb-khwaja.jpeg";
+import hijratullahPhoto from "@/components/home/images/Hijratullah.jpg";
+
 export const site = {
   name: "Parsa Technology",
-  tagline: "Software that helps businesses grow.",
+  tagline: "Software built to last.",
   description:
     "Parsa Technology designs and builds websites, web applications, mobile apps, desktop software and digital solutions that solve real business problems.",
   url: "https://parsatechnology.com",
@@ -8,7 +13,7 @@ export const site = {
   phone: "+93 744470786",
   phoneHref: "+93744470786",
   location: "Remote-first studio — serving clients worldwide",
-  availability: "Currently onboarding new projects for Q4 2026.",
+  availability: "Booking new projects for Q4 2026.",
   keywords: [
     "software development",
     "web applications",
@@ -23,7 +28,7 @@ export const site = {
     { label: "LinkedIn", href: "#" },
     { label: "GitHub", href: "#" },
     { label: "X / Twitter", href: "#" },
-    { label: "Dribbble", href: "#" },
+    { label: "Facebook", href: "#" },
   ],
   nav: [
     { label: "Home", href: "/" },
@@ -34,12 +39,12 @@ export const site = {
     { label: "Contact", href: "/contact" },
   ],
   services: [
-    { title: "Website Development" },
-    { title: "Web Application Development" },
-    { title: "Mobile Application Development" },
-    { title: "Desktop Software Development" },
-    { title: "UI/UX Design" },
-    { title: "Domain Registration & Hosting" },
+    { title: "Website Development", short: "Website Development" },
+    { title: "Web Application Development", short: "Web application" },
+    { title: "Mobile Application Development", short: "Mobile Application" },
+    { title: "Desktop Software Development", short: "Desktop Software" },
+    { title: "UI/UX Design", short: "UI/UX Design" },
+    { title: "Domain Registration & Hosting", short: "Domain & Hosting" },
   ],
 };
 
@@ -60,13 +65,13 @@ export const services: Service[] = [
     index: "02",
     title: "Web Application Development",
     description:
-      "Production-grade web apps with typed APIs, dashboards and role-based workflows that hold up under real operational load.",
+      "Multi-role web applications with dashboards, permissions and APIs designed to hold up under real operational load.",
   },
   {
     index: "03",
     title: "Mobile Application Development",
     description:
-      "iOS and Android apps built with React Native and native modules where it matters, shipped through the stores with care.",
+      "Cross-platform iOS and Android apps with offline-first behaviour, released through the app stores and maintained after launch.",
   },
   {
     index: "04",
@@ -211,25 +216,25 @@ export const process: ProcessStep[] = [
     step: "01",
     title: "Discovery",
     description:
-      "We map the problem, the users and the success metrics, then agree on scope, risks and a delivery plan you can budget against.",
+      "We get to the bottom of the problem, the users and what success looks like — then fix scope, risks and a budget you can plan on.",
   },
   {
     step: "02",
     title: "Design",
     description:
-      "Flows, prototypes and a technical plan. You see how the product works and how it is built before a line of production code ships.",
+      "Flows, prototypes and a technical plan. You approve how the product works before we build it.",
   },
   {
     step: "03",
     title: "Build",
     description:
-      "Typed end-to-end, tested and shipped in weekly increments on a staging environment. No black boxes, no end-of-project surprises.",
+      "Typed, tested and shipped weekly to staging. You see working software every week — never a big reveal at the end.",
   },
   {
     step: "04",
-    title: "Support",
+    title: "Deliver & Support",
     description:
-      "We stay on after launch — monitoring, iterating and scaling with you, with clear response times when something needs attention.",
+      "After launch we keep it healthy — monitoring, fixes and improvements, with defined response times when something needs attention.",
   },
 ];
 
@@ -252,26 +257,30 @@ export type Testimonial = {
   quote: string;
   name: string;
   role: string;
+  photo: StaticImageData;
 };
 
 export const testimonials: Testimonial[] = [
   {
     quote:
       "Parsa replaced our spreadsheets with a system the whole operations team actually trusts. Payroll disputes simply stopped happening.",
-    name: "Ahmad Khan",
-    role: "Operations Director, Meridian Logistics",
+    name: "Shirazkhan Naseri",
+    role: "Founder & CEO of Iqdaam",
+    photo: shirazkhanPhoto,
   },
   {
     quote:
       "They understood our clinic before writing code. Scheduling, records and billing now live in one place — our reception team never goes back.",
-    name: "Dr. Sara Rahimi",
+    name: "Dr. Raqeeb Khwaja",
     role: "Practice Owner, Khwaja Dental",
+    photo: raqeebPhoto,
   },
   {
     quote:
-      "Senior people, clear communication and a weekly demo every single week. It felt like an engineering partner, not a vendor.",
-    name: "Omar Sadiq",
-    role: "Managing Director, Northline Retail",
+      "Senior people, clear communication and a demo every single week. It felt like an engineering partner, not a vendor.",
+    name: "Hijratullah",
+    role: "Managing Director, Alhafiz Tailoring",
+    photo: hijratullahPhoto,
   },
 ];
 
@@ -553,7 +562,7 @@ export const contactFaqs: Faq[] = [
   {
     question: "Can you work with our existing codebase or in-house team?",
     answer:
-      "Yes. We regularly audit, extend and modernise existing systems, and about half of our engagements involve working alongside an in-house team inside your rituals and repository.",
+      "Yes. We regularly audit, extend and modernise existing systems, and roughly half of our projects are delivered together with a client's own developers inside their repository and review process.",
   },
   {
     question: "What happens after launch?",
@@ -576,27 +585,27 @@ export const coreValues: Value[] = [
       "We choose maintainable solutions over quick wins. The code we hand over should still make sense in five years.",
   },
   {
-    title: "Transparency by default",
+    title: "Nothing hidden",
     description:
-      "Weekly demos, honest estimates and open repositories. You always know what is being built and what it costs.",
+      "Written proposals, honest estimates and an open repository. You always know what is being built and what it costs.",
   },
   {
-    title: "Own the outcome",
+    title: "Answerable for the result",
     description:
-      "We take responsibility from architecture to deployment — and stay accountable for what the software does in production.",
+      "We take responsibility from the first sketch through to production — and we keep answering for what the software does once it is live.",
   },
   {
-    title: "Build to last",
+    title: "Made to outlive the launch",
     description:
-      "Well-understood technology, tested deliberately, documented clearly. We optimise for the next five years, not the next demo.",
+      "Well-understood technology, tested deliberately and documented clearly, so the product is still cheap to change years from now.",
   },
 ];
 
 export const whyUs: Value[] = [
   {
-    title: "Senior engineers only",
+    title: "Experienced people on every seat",
     description:
-      "The people in the first conversation are the people who build your product. No handoff to a junior team.",
+      "Small teams of experienced engineers and designers who stay with your project from kickoff to release — no relay races between sales, delivery and build.",
   },
   {
     title: "Design and engineering together",
@@ -604,9 +613,9 @@ export const whyUs: Value[] = [
       "Interface design and software architecture sit in the same room, so what looks right also holds up technically.",
   },
   {
-    title: "Typed end-to-end",
+    title: "Types from database to screen",
     description:
-      "From database to interface, types move with the data — which means fewer production incidents and safer changes.",
+      "Data carries its shape all the way from the schema to the interface, which means fewer production incidents and safer changes.",
   },
   {
     title: "Visible progress every week",
@@ -665,12 +674,11 @@ export const team: TeamDiscipline[] = [
 ];
 
 export const story = {
-  lead:
-    "Parsa Technology began with a simple frustration: too much software is built to demo well and live poorly.",
+  lead: "Parsa Technology began with a frustration: software that demos well but lives poorly.",
   paragraphs: [
-    "We started as a small group of engineers and designers taking on the projects other teams handed back — systems with real data, real users and real deadlines. That work shaped how we operate today: understand the problem completely, design deliberately, and ship software that holds up long after launch.",
-    "Since then we have grown into a multidisciplinary studio delivering websites, web and mobile applications, desktop software and the infrastructure underneath them. We stay intentionally compact, so every engagement is handled by senior people who remain accountable from the first call to the last release.",
-    "Our clients range from clinics and retailers to logistics operators and enterprise teams. What they share is a need for software that fits how their business actually works — and a partner who tells them the truth about scope, cost and trade-offs.",
+    "We started small, taking on the projects other teams handed back — real data, real users, real deadlines. Those projects decided how we still work today.",
+    "We stayed compact on purpose: websites, web and mobile apps, desktop tools and the infrastructure behind them, built by the same senior people from first call to final release.",
+    "Clinics, retailers, logistics operators, enterprise teams — all of them need software that fits how the business actually runs, and a partner honest about scope, cost and trade-offs.",
   ],
 };
 
@@ -702,17 +710,17 @@ export const contactChannels: ContactChannel[] = [
     label: "Phone",
     value: site.phone,
     href: `tel:${site.phoneHref}`,
-    detail: "Monday to Friday, 9:00 – 18:00.",
+    detail: "Saturday to Thursday",
   },
   {
     label: "Location",
     value: site.location,
-    detail: "We work across time zones to serve clients globally.",
+    detail: "Distributed team, working hours that overlap yours.",
   },
   {
     label: "Availability",
     value: site.availability,
-    detail: "Retainers and ongoing support considered year-round.",
+    detail: "We hold capacity for existing clients year-round.",
   },
 ];
 

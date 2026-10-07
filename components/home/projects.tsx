@@ -9,8 +9,8 @@ export default function Projects() {
 
   return (
     <Section
-      label="Projects"
-      title="Recent builds"
+      label="Our work"
+      title="Selected projects"
       action={<p className="hidden text-sm text-muted md:block">2025 — {new Date().getFullYear()}</p>}
     >
       <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
@@ -31,7 +31,7 @@ export default function Projects() {
           href="/projects"
           className="font-display text-xl font-light italic transition-colors hover:text-accent md:text-2xl"
         >
-          View all projects →
+          Browse all projects →
         </Link>
       </Reveal>
     </Section>
