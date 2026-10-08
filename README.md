@@ -35,7 +35,7 @@ Use:
 
 ### Headings
 
-Fraunces
+Instrument Serif
 
 Characteristics:
 
