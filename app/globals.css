@@ -123,22 +123,19 @@
     text-wrap: balance;
   }
 
-  /* Signature emphasis: words tagged inside display headlines get a
-     solid accent block instead of an italic flourish. */
+  /* Signature emphasis: words tagged inside display headlines are set in
+     italic accent colour instead of an italic flourish. */
   .mark,
   .accent-italic {
-    background-color: var(--app-accent);
-    color: #ffffff;
-    padding: 0.02em 0.14em 0.06em;
-    box-decoration-break: clone;
-    -webkit-box-decoration-break: clone;
+    color: var(--app-accent);
+    font-style: italic;
+    font-synthesis: style;
   }
 
-  /* Inside accent-coloured panels the highlight inverts so it stays visible. */
+  /* Inside accent-coloured panels the emphasis inverts so it stays visible. */
   .on-accent .mark,
   .on-accent .accent-italic {
-    background-color: var(--app-background);
-    color: var(--app-foreground);
+    color: #ffffff;
   }
 
   /* Outlined numerals — used for step numbers and index marks. */
