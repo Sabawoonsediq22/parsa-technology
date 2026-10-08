@@ -16,7 +16,7 @@ export default function ArticleCard({
   const number = String(index + 1).padStart(2, "0");
 
   return (
-    <article className="group">
+    <article className="group h-full">
       <Link href={`/insights/${article.slug}`} className="block">
         <Visual
           index={number}
@@ -24,10 +24,14 @@ export default function ArticleCard({
           ratio="pt-[70%] md:pt-[72%]"
           className="mb-5"
         />
-        <p className="mb-3 text-xs uppercase tracking-widest text-muted">
-          {article.category} · {formatDate(article.date)}
-        </p>
-        <h3 className="font-display text-xl font-light leading-snug transition-colors group-hover:text-accent md:text-2xl">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em]">
+          <span className="text-accent">{article.category}</span>
+          <span className="text-muted/50">/</span>
+          <span className="text-muted">{formatDate(article.date)}</span>
+          <span className="text-muted/50">/</span>
+          <span className="text-muted">{article.readingTime}</span>
+        </div>
+        <h3 className="display-title mt-4 text-xl leading-snug transition-colors duration-300 group-hover:text-accent md:text-2xl">
           {article.title}
         </h3>
         {showExcerpt ? (
@@ -35,8 +39,11 @@ export default function ArticleCard({
             {article.excerpt}
           </p>
         ) : null}
-        <span className="mt-4 inline-block text-xs text-muted transition-colors group-hover:text-accent">
-          Read article →
+        <span className="mt-5 flex w-full items-center justify-between gap-3 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
+          Read article
+          <span className="transition-transform duration-300 group-hover:translate-x-1">
+            →
+          </span>
         </span>
       </Link>
     </article>

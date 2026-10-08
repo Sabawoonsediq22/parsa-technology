@@ -2,7 +2,27 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full text-sm transition-colors duration-300";
+  "group/btn inline-flex items-center justify-center gap-3 rounded-none border font-mono text-[11px] uppercase leading-none tracking-[0.18em] transition-colors duration-300";
+
+function Arrow({ className = "" }: { className?: string }) {
+  return (
+    <svg
+      width="14"
+      height="14"
+      viewBox="0 0 14 14"
+      fill="none"
+      aria-hidden="true"
+      className={`transition-transform duration-300 group-hover/btn:translate-x-1 ${className}`}
+    >
+      <path
+        d="M1 7h11M8 3l4 4-4 4"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="square"
+      />
+    </svg>
+  );
+}
 
 export function PrimaryLink({
   href,
@@ -16,9 +36,10 @@ export function PrimaryLink({
   return (
     <Link
       href={href}
-      className={`${base} bg-accent px-6 py-3 font-medium text-white hover:bg-accent/85 ${className}`}
+      className={`${base} border-accent bg-accent px-6 py-4 text-white hover:border-foreground hover:bg-foreground hover:text-background ${className}`}
     >
       {children}
+      <Arrow />
     </Link>
   );
 }
@@ -35,9 +56,10 @@ export function OutlineLink({
   return (
     <Link
       href={href}
-      className={`${base} border border-border px-6 py-3 text-foreground hover:border-accent hover:text-accent ${className}`}
+      className={`${base} border-border px-6 py-4 text-foreground hover:border-accent hover:text-accent ${className}`}
     >
       {children}
+      <Arrow />
     </Link>
   );
 }
@@ -45,7 +67,7 @@ export function OutlineLink({
 export function ArrowLink({
   href,
   children,
-  direction = "down",
+  direction = "right",
   className = "",
 }: {
   href: string;
@@ -54,27 +76,20 @@ export function ArrowLink({
   className?: string;
 }) {
   const path =
-    direction === "down" ? "M8 2v12M2 8l6 6 6-6" : "M2 8h12M9 3l5 5-5 5";
+    direction === "down" ? "M7 1v11M3 8l4 4 4-4" : "M1 7h11M8 3l4 4-4 4";
 
   return (
     <Link
       href={href}
-      className={`group inline-flex items-center gap-3 text-sm transition-colors hover:text-accent ${className}`}
+      className={`group/arrow inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.18em] text-foreground transition-colors hover:text-accent ${className}`}
     >
-      <span className="flex h-12 w-12 items-center justify-center rounded-full border border-border transition-colors group-hover:border-accent group-hover:bg-accent group-hover:text-white">
-        <svg
-          width="16"
-          height="16"
-          viewBox="0 0 16 16"
-          fill="none"
-          aria-hidden="true"
-        >
+      <span className="flex h-11 w-11 items-center justify-center border border-border transition-colors group-hover/arrow:border-accent group-hover/arrow:bg-accent group-hover/arrow:text-white">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
           <path
             d={path}
             stroke="currentColor"
             strokeWidth="1.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+            strokeLinecap="square"
           />
         </svg>
       </span>
@@ -95,7 +110,7 @@ export function TextLink({
   return (
     <Link
       href={href}
-      className={`text-sm text-muted transition-colors hover:text-foreground ${className}`}
+      className={`link-slide inline-block font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-accent ${className}`}
     >
       {children}
     </Link>

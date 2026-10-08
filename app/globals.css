@@ -13,33 +13,42 @@
 }
 
 @theme {
-  --font-display: var(--font-instrument-serif), "Iowan Old Style", Georgia, serif;
+  --font-display: var(--font-space-grotesk), "Space Grotesk", ui-sans-serif,
+    system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo,
+    monospace;
 }
 
 /* Dark is the default theme: the palette lives on :root so it applies
    before hydration and with JavaScript disabled. `.light` swaps it. */
 :root {
   color-scheme: dark;
-  --app-background: #000000;
-  --app-foreground: #ffffff;
-  --app-muted: #a1a1aa;
-  --app-surface: #0a0a0b;
-  --app-elevated: #101012;
-  --app-border: #1c1c1f;
+  --app-background: #08090b;
+  --app-foreground: #ebedf0;
+  --app-muted: #8b9198;
+  --app-surface: #0b0d10;
+  --app-elevated: #12151a;
+  --app-border: #1f2329;
   --app-accent: #f32e35;
+  --app-grid-line: rgba(255, 255, 255, 0.045);
+  --app-grid-line-strong: rgba(255, 255, 255, 0.08);
+  --app-glow: rgba(243, 46, 53, 0.22);
 }
 
 .light {
   color-scheme: light;
-  --app-background: #f0f8ff;
-  --app-foreground: #0b0b0c;
-  --app-muted: #52525b;
-  --app-surface: #f6f6f7;
-  --app-elevated: #eeeeef;
-  --app-border: #e4e4e7;
-  --app-accent: #e11d24;
+  --app-background: #f1f0ec;
+  --app-foreground: #0a0b0d;
+  --app-muted: #565c64;
+  --app-surface: #e8e7e2;
+  --app-elevated: #dedcd6;
+  --app-border: #cfcdc6;
+  --app-accent: #df1c24;
+  --app-grid-line: rgba(10, 11, 13, 0.07);
+  --app-grid-line-strong: rgba(10, 11, 13, 0.13);
+  --app-glow: rgba(223, 28, 36, 0.16);
 }
 
 @layer base {
@@ -81,43 +90,175 @@
   .shell {
     margin-inline: auto;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1560px;
   }
 
   .section {
-    padding-block: 6rem;
+    padding-block: 4.5rem;
     padding-inline: 1.5rem;
+    scroll-margin-top: 5rem;
   }
 
   @media (min-width: 768px) {
     .section {
-      padding-block: 8rem;
+      padding-block: 7rem;
       padding-inline: 3rem;
     }
   }
 
-  .eyebrow {
-    font-size: 0.875rem;
-    line-height: 1.25rem;
+  .eyebrow,
+  .mono-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    line-height: 1.4;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
     color: var(--app-muted);
   }
 
   .display-title {
     font-family: var(--font-display);
-    font-weight: 300;
-    letter-spacing: -0.02em;
+    font-weight: 500;
+    letter-spacing: -0.035em;
     text-wrap: balance;
   }
 
+  /* Signature emphasis: words tagged inside display headlines get a
+     solid accent block instead of an italic flourish. */
+  .mark,
   .accent-italic {
-    font-style: italic;
-    color: var(--app-accent);
+    background-color: var(--app-accent);
+    color: #ffffff;
+    padding: 0.02em 0.14em 0.06em;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+  }
+
+  /* Inside accent-coloured panels the highlight inverts so it stays visible. */
+  .on-accent .mark,
+  .on-accent .accent-italic {
+    background-color: var(--app-background);
+    color: var(--app-foreground);
+  }
+
+  /* Outlined numerals — used for step numbers and index marks. */
+  .stroked {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--app-accent);
+  }
+
+  .stroked-foreground {
+    color: transparent;
+    -webkit-text-stroke: 1px var(--app-grid-line-strong);
+  }
+
+  /* Blueprint grid backdrops */
+  .blueprint {
+    background-image:
+      linear-gradient(to right, var(--app-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--app-grid-line) 1px, transparent 1px);
+    background-size: 84px 84px;
+  }
+
+  .blueprint-fine {
+    background-image:
+      linear-gradient(to right, var(--app-grid-line) 1px, transparent 1px),
+      linear-gradient(to bottom, var(--app-grid-line) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 90;
+    pointer-events: none;
+    opacity: 0.28;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='160' height='160' filter='url(%23n)' opacity='0.55'/></svg>");
+  }
+
+  /* Registration marks for corners of panels */
+  .reg-marks::before,
+  .reg-marks::after {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--app-accent);
+    pointer-events: none;
+  }
+
+  .reg-marks::before {
+    top: -1px;
+    left: -1px;
+    border-right: 0;
+    border-bottom: 0;
+  }
+
+  .reg-marks::after {
+    right: -1px;
+    bottom: -1px;
+    border-left: 0;
+    border-top: 0;
+  }
+
+  /* Marquee ticker */
+  .marquee {
+    overflow: hidden;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll var(--marquee-duration, 42s) linear infinite;
+  }
+
+  .marquee--reverse .marquee-track {
+    animation-direction: reverse;
+  }
+
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .hide-scrollbar {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .link-slide {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .link-slide:hover {
+    background-size: 100% 1px;
+  }
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  .marquee-track {
+    animation: none;
   }
 
   *,

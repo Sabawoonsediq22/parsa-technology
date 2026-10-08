@@ -1,44 +1,100 @@
+"use client";
+
+import { useEffect, useState } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Section from "@/components/ui/section";
-import Reveal from "@/components/ui/reveal";
 import { testimonials } from "@/lib/content";
 
 export default function Testimonials() {
+  const [active, setActive] = useState(0);
+  const reduceMotion = useReducedMotion();
+  const current = testimonials[active];
+
+  useEffect(() => {
+    if (reduceMotion || testimonials.length < 2) return;
+    const timer = window.setTimeout(
+      () => setActive((value) => (value + 1) % testimonials.length),
+      8000,
+    );
+    return () => window.clearTimeout(timer);
+  }, [active, reduceMotion]);
+
   return (
-    <Section label="What clients say" title="Trusted by teams that ship.">
-      <div className="grid gap-8 md:grid-cols-3">
-        {testimonials.map((testimonial, index) => (
-          <Reveal key={testimonial.name} delay={index * 0.08} y={32}>
-            <figure className="flex h-full flex-col rounded-2xl border border-border p-8">
-              <span
-                className="font-display text-6xl leading-none text-accent"
-                aria-hidden="true"
-              >
-                &quot;
-              </span>
-              <blockquote className="mt-4 flex-1 text-base leading-relaxed md:text-lg">
-                {testimonial.quote}
+    <Section index="05" label="What clients say" title="Trusted by teams that ship.">
+      <div className="reg-marks relative grid border border-border md:grid-cols-12">
+        <div className="relative overflow-hidden p-7 md:col-span-7 md:p-10 lg:col-span-8 lg:p-14">
+          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+            Testimonial {String(active + 1).padStart(2, "0")} /{" "}
+            {String(testimonials.length).padStart(2, "0")}
+          </p>
+
+          <AnimatePresence mode="wait">
+            <motion.figure
+              key={current.name}
+              initial={reduceMotion ? false : { opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -12 }}
+              transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <blockquote className="display-title mt-6 text-[clamp(1.4rem,3vw,2.75rem)] leading-[1.15]">
+                “{current.quote}”
               </blockquote>
-              <figcaption className="mt-8 flex items-center gap-4 border-t border-border pt-6">
+              <figcaption className="mt-8 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                <span className="text-foreground">{current.name}</span>
+                <span className="mx-2 text-accent">/</span>
+                {current.role}
+              </figcaption>
+            </motion.figure>
+          </AnimatePresence>
+        </div>
+
+        <div className="grid border-t border-border md:col-span-5 md:border-l md:border-t-0 lg:col-span-4">
+          {testimonials.map((testimonial, index) => {
+            const isActive = index === active;
+            return (
+              <button
+                key={testimonial.name}
+                type="button"
+                aria-pressed={isActive}
+                onClick={() => setActive(index)}
+                className={`group flex items-center gap-4 border-b border-border p-5 text-left transition-colors duration-300 last:border-b-0 md:p-6 ${
+                  isActive ? "bg-elevated" : "hover:bg-elevated/60"
+                }`}
+              >
+                <span
+                  className={`h-full w-[3px] self-stretch transition-colors duration-300 ${
+                    isActive ? "bg-accent" : "bg-transparent group-hover:bg-accent/40"
+                  }`}
+                  aria-hidden="true"
+                />
                 <Image
                   src={testimonial.photo}
                   alt={testimonial.name}
                   width={56}
                   height={56}
-                  className="h-14 w-14 shrink-0 rounded-full object-cover"
+                  className="h-12 w-12 shrink-0 border border-border object-cover grayscale transition-all duration-300 md:h-14 md:w-14"
                 />
-                <div>
-                  <div className="font-display text-lg font-light">
+                <span className="min-w-0">
+                  <span className="display-title block truncate text-base md:text-lg">
                     {testimonial.name}
-                  </div>
-                  <div className="mt-1 text-sm text-muted">
+                  </span>
+                  <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-[0.15em] text-muted">
                     {testimonial.role}
-                  </div>
-                </div>
-              </figcaption>
-            </figure>
-          </Reveal>
-        ))}
+                  </span>
+                </span>
+                <span
+                  className={`ml-auto font-mono text-[11px] transition-colors ${
+                    isActive ? "text-accent" : "text-muted/50"
+                  }`}
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </button>
+            );
+          })}
+        </div>
       </div>
     </Section>
   );

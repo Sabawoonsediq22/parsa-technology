@@ -5,30 +5,35 @@ import { process } from "@/lib/content";
 export default function Process() {
   return (
     <Section
+      index="03"
       label="The way we build"
       title={
         <>
-          A clear path from <span className="accent-italic">idea</span> to
-          production.
+          A clear path from <span className="mark">idea</span> to production.
         </>
       }
     >
-      <div className="grid gap-8 md:grid-cols-4">
+      <div className="grid gap-x-6 gap-y-10 md:grid-cols-2 lg:grid-cols-4">
         {process.map((step, index) => (
-          <Reveal key={step.step} delay={index * 0.08} y={24}>
-            <div className="border-t border-border pt-6">
-              <div className="mb-6 flex items-center gap-3">
-                <span className="flex h-8 w-8 items-center justify-center rounded-full bg-accent/10 text-xs text-accent">
-                  {step.step}
-                </span>
-                <h3 className="font-display text-xl font-light md:text-2xl">
-                  {step.title}
-                </h3>
-              </div>
-              <p className="text-sm leading-relaxed text-muted">
-                {step.description}
-              </p>
-            </div>
+          <Reveal
+            key={step.step}
+            delay={index * 0.08}
+            y={24}
+            className="group relative border-t border-border pt-7"
+          >
+            <span
+              className="absolute -top-px left-0 h-px w-0 bg-accent transition-all duration-500 group-hover:w-full"
+              aria-hidden="true"
+            />
+            <span className="display-title stroked block text-[clamp(3.5rem,7vw,5rem)] leading-none transition-colors duration-300 group-hover:text-accent">
+              {step.step}
+            </span>
+            <h3 className="display-title mt-5 text-xl md:text-2xl">
+              {step.title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted">
+              {step.description}
+            </p>
           </Reveal>
         ))}
       </div>

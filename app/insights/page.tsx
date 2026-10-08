@@ -43,18 +43,24 @@ export default function InsightsPage() {
               />
             </div>
             <div className="flex flex-col justify-center md:col-span-5">
-              <p className="mb-4 text-xs uppercase tracking-widest text-muted">
-                {featured.category} · {formatDate(featured.date)} ·{" "}
-                {featured.readingTime}
+              <p className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em]">
+                <span className="text-accent">{featured.category}</span>
+                <span className="text-muted/50">/</span>
+                <span className="text-muted">{formatDate(featured.date)}</span>
+                <span className="text-muted/50">/</span>
+                <span className="text-muted">{featured.readingTime}</span>
               </p>
-              <h3 className="display-title text-3xl transition-colors group-hover:text-accent md:text-4xl lg:text-5xl">
+              <h3 className="display-title text-3xl leading-[1.03] transition-colors group-hover:text-accent md:text-4xl lg:text-5xl">
                 {featured.title}
               </h3>
               <p className="mt-5 text-sm leading-relaxed text-muted md:text-base">
                 {featured.excerpt}
               </p>
-              <span className="mt-8 inline-block font-display text-lg font-light italic text-foreground transition-colors group-hover:text-accent">
-                Read article →
+              <span className="mt-8 inline-flex w-fit items-center gap-3 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors group-hover:border-accent group-hover:text-accent">
+                Read article
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
               </span>
             </div>
           </Link>

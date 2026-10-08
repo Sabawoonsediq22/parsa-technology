@@ -2,6 +2,7 @@ import Link from "next/link";
 import ProjectCard from "@/components/cards/project-card";
 import Section from "@/components/ui/section";
 import Reveal from "@/components/ui/reveal";
+import { TextLink } from "@/components/ui/buttons";
 import { projects } from "@/lib/content";
 
 export default function Projects() {
@@ -9,31 +10,40 @@ export default function Projects() {
 
   return (
     <Section
+      index="02"
       label="Our work"
       title="Selected projects"
-      action={<p className="hidden text-sm text-muted md:block">2025 — {new Date().getFullYear()}</p>}
+      action={<TextLink href="/projects">All projects →</TextLink>}
     >
-      <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-12">
-        {preview.map((project, index) => (
-          <Reveal
-            key={project.slug}
-            y={40}
-            delay={index * 0.05}
-            className={index % 2 === 1 ? "md:mt-24" : undefined}
-          >
-            <ProjectCard project={project} index={index} showSummary={false} />
-          </Reveal>
-        ))}
+      <div className="hide-scrollbar -mx-6 snap-x snap-mandatory overflow-x-auto pb-3 md:-mx-12">
+        <div className="flex w-max gap-5 px-6 md:gap-6 md:px-12">
+          {preview.map((project, index) => (
+            <Reveal
+              key={project.slug}
+              delay={index * 0.05}
+              y={32}
+              className="w-[80vw] shrink-0 snap-start sm:w-[58vw] md:w-[46vw] lg:w-[35vw]"
+            >
+              <ProjectCard project={project} index={index} showSummary={false} />
+            </Reveal>
+          ))}
+        </div>
       </div>
 
-      <Reveal className="mt-16 text-center md:mt-24">
+      <div className="mt-8 flex flex-col items-start justify-between gap-5 border-t border-border pt-6 md:flex-row md:items-center">
+        <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+          Drag / scroll →
+        </p>
         <Link
           href="/projects"
-          className="font-display text-xl font-light italic transition-colors hover:text-accent md:text-2xl"
+          className="group/browse inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors hover:text-accent"
         >
-          Browse all projects →
+          Browse all projects
+          <span className="flex h-10 w-10 items-center justify-center border border-border transition-colors group-hover/browse:border-accent group-hover/browse:bg-accent group-hover/browse:text-white">
+            →
+          </span>
         </Link>
-      </Reveal>
+      </div>
     </Section>
   );
 }

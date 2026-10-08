@@ -36,12 +36,12 @@ export default function AboutPage() {
             delay={0.1}
             className="md:col-span-5 md:col-start-8 md:self-end"
           >
-            <blockquote className="rounded-2xl border border-border p-8">
-              <p className="font-display text-xl font-light leading-snug md:text-2xl">
+            <blockquote className="reg-marks relative border border-border p-7 md:p-8">
+              <p className="display-title text-xl leading-snug md:text-2xl">
                 “Understand the problem completely, design deliberately, and
                 ship software that holds up long after launch.”
               </p>
-              <footer className="mt-6 border-t border-border pt-4 text-sm text-muted">
+              <footer className="mt-6 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
                 How every Parsa engagement is scoped
               </footer>
             </blockquote>
@@ -53,17 +53,17 @@ export default function AboutPage() {
       </Section>
 
       <Section label="Core values" title="What we hold to.">
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-2">
+        <div className="grid border-l border-t border-border sm:grid-cols-2">
           {coreValues.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.06} y={20}>
-              <div className="group h-full bg-background p-8 transition-colors duration-300 hover:bg-accent/5 md:p-10">
-                <span className="mb-6 flex h-10 w-10 items-center justify-center rounded-full border border-border text-sm text-muted transition-all duration-300 group-hover:border-accent group-hover:bg-accent group-hover:text-white">
+              <div className="group h-full border-b border-r border-border p-7 transition-colors duration-300 hover:bg-elevated/70 md:p-10">
+                <span className="mb-6 block font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="font-display text-2xl font-light">
+                <h3 className="display-title text-2xl leading-tight transition-transform duration-300 group-hover:translate-x-1 md:text-3xl">
                   {value.title}
                 </h3>
-                <p className="mt-3 text-sm leading-relaxed text-muted">
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
                   {value.description}
                 </p>
               </div>
@@ -73,17 +73,17 @@ export default function AboutPage() {
       </Section>
 
       <Section label="Why choose us" title="Reasons clients stay.">
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3">
           {whyUs.map((reason, index) => (
             <Reveal key={reason.title} delay={index * 0.05} y={24}>
-              <div className="h-full border-t border-border pt-6">
-                <div className="mb-4 flex items-center gap-3">
-                  <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                  <h3 className="font-display text-xl font-light">
-                    {reason.title}
-                  </h3>
-                </div>
-                <p className="text-sm leading-relaxed text-muted">
+              <div className="group h-full border-t border-border pt-6 transition-colors duration-300 hover:border-accent">
+                <span className="mb-5 block font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+                <h3 className="display-title text-xl leading-snug md:text-2xl">
+                  {reason.title}
+                </h3>
+                <p className="mt-3 text-sm leading-relaxed text-muted">
                   {reason.description}
                 </p>
               </div>

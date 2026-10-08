@@ -7,9 +7,10 @@ type FieldName = "name" | "email" | "message";
 type Errors = Partial<Record<FieldName, string>>;
 
 const inputClass =
-  "w-full rounded-xl border border-border bg-surface px-4 py-3 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent";
+  "w-full rounded-none border border-border bg-surface px-4 py-3.5 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-0";
 
-const labelClass = "mb-2 block text-sm text-muted";
+const labelClass =
+  "mb-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-muted";
 
 function Field({
   label,
@@ -144,7 +145,7 @@ export default function ContactForm() {
       />
 
       <fieldset className="sm:col-span-2">
-        <legend className="mb-2 block text-sm text-muted">
+        <legend className="mb-3 block font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
           Services{" "}
           <span className="text-muted/60"> (select one or more)</span>
         </legend>
@@ -158,7 +159,7 @@ export default function ContactForm() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => toggleType(type)}
-                className={`rounded-full border px-4 py-2 text-sm transition-colors ${
+                className={`border px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-300 ${
                   active
                     ? "border-accent bg-accent text-white"
                     : "border-border text-muted hover:border-accent hover:text-accent"
@@ -194,9 +195,12 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={sending}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-accent/85 disabled:cursor-not-allowed disabled:opacity-60"
+          className="group/send inline-flex items-center justify-center gap-3 border border-accent bg-accent px-6 py-4 font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background disabled:cursor-not-allowed disabled:opacity-60"
         >
-          {sending ? "Sending…" : "Send message →"}
+          {sending ? "Sending…" : "Send message"}
+          <span className="transition-transform duration-300 group-hover/send:translate-x-1">
+            →
+          </span>
         </button>
         <p
           role="status"

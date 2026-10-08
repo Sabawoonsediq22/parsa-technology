@@ -14,24 +14,43 @@ export default function PageHero({
   meta,
 }: PageHeroProps) {
   return (
-    <section className="px-6 pb-16 pt-36 md:px-12 md:pb-24 md:pt-48">
-      <div className="shell">
+    <section className="relative overflow-hidden border-b border-border px-6 pb-14 pt-32 md:px-12 md:pb-20 md:pt-44">
+      <div
+        className="blueprint absolute inset-0"
+        aria-hidden="true"
+        style={{ maskImage: "linear-gradient(to bottom, black, transparent 85%)" }}
+      />
+      <div
+        className="absolute -left-24 -top-32 h-80 w-80 rounded-full blur-[110px]"
+        aria-hidden="true"
+        style={{ backgroundColor: "var(--app-glow)" }}
+      />
+
+      <div className="shell relative">
         <Reveal>
-          <p className="eyebrow mb-6 flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
             <span
-              className="inline-block h-2 w-2 animate-pulse rounded-full bg-accent"
+              className="inline-block h-2 w-2 animate-pulse bg-accent"
               aria-hidden="true"
             />
-            {label}
-            {meta ? <span className="text-muted/60">· {meta}</span> : null}
-          </p>
-          <h1 className="display-title text-5xl leading-[0.95] md:text-7xl lg:text-8xl">
+            <p className="eyebrow">{label}</p>
+            {meta ? (
+              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                / {meta}
+              </span>
+            ) : null}
+          </div>
+
+          <h1 className="display-title mt-7 max-w-5xl text-[clamp(2.6rem,7.5vw,6.5rem)] leading-[0.9]">
             {title}
           </h1>
+
           {intro ? (
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-muted md:text-lg">
-              {intro}
-            </p>
+            <div className="mt-10 grid gap-6 border-t border-border pt-6 md:grid-cols-12">
+              <p className="max-w-2xl text-base leading-relaxed text-muted md:col-span-7 md:col-start-6 md:text-lg">
+                {intro}
+              </p>
+            </div>
           ) : null}
         </Reveal>
       </div>

@@ -4,7 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import {
+  AnimatePresence,
+  motion,
+  useReducedMotion,
+  useScroll,
+  useSpring,
+} from "framer-motion";
 import ThemeToggle from "@/components/theme/theme-toggle";
 import { site } from "@/lib/content";
 
@@ -13,6 +19,13 @@ export default function Header() {
   const reduceMotion = useReducedMotion();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, {
+    stiffness: 140,
+    damping: 30,
+    restDelta: 0.001,
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -35,17 +48,24 @@ export default function Header() {
       initial={reduceMotion ? false : { opacity: 0, y: -24 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-500 ${
         scrolled || open
-          ? "border-border bg-background/90 backdrop-blur-md"
-          : "border-transparent"
+          ? "border-b border-border bg-background/85 backdrop-blur-md"
+          : "border-b border-transparent"
       }`}
     >
-      <div className="shell flex items-center justify-between px-6 py-4 md:px-12 md:py-5">
+      <motion.div
+        style={{ scaleX: progress }}
+        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-accent"
+        aria-hidden="true"
+      />
+
+      <div className="shell flex items-center justify-between px-6 py-4 md:px-12">
         <Link
           href="/"
           onClick={closeMenu}
-          className="flex items-center gap-3 font-display text-lg tracking-tight md:text-xl"
+          className="flex items-center gap-3"
+          aria-label={`${site.name} — home`}
         >
           <Image
             src="/favicon.svg"
@@ -55,34 +75,47 @@ export default function Header() {
             loading="eager"
             className="h-8 w-8 md:h-9 md:w-9"
           />
-          {site.name}
+          <span className="flex flex-col leading-none">
+            <span className="font-display text-lg font-medium tracking-tight md:text-xl">
+              Parsa
+            </span>
+            <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.3em] text-muted">
+              Technology
+            </span>
+          </span>
         </Link>
 
         <nav
           aria-label="Primary"
-          className="hidden items-center gap-10 md:flex"
+          className="hidden items-center gap-8 lg:flex xl:gap-10"
         >
-          {site.nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={pathname === item.href ? "page" : undefined}
-              className={`text-sm transition-colors ${
-                pathname === item.href
-                  ? "text-foreground"
-                  : "text-muted hover:text-foreground"
-              }`}
-            >
-              {item.label}
-            </Link>
-          ))}
+          {site.nav.map((item) => {
+            const active = pathname === item.href;
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={`group relative font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                  active ? "text-accent" : "text-muted hover:text-foreground"
+                }`}
+              >
+                {item.label}
+                <span
+                  className={`absolute -bottom-2 left-0 h-px w-full origin-left bg-accent transition-transform duration-300 ${
+                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 md:gap-3">
           <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden rounded-full border border-border px-4 py-2 text-sm transition-all hover:border-accent hover:bg-accent hover:text-white md:inline-block"
+            className="hidden border border-accent bg-accent px-5 py-3 font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background md:inline-flex"
           >
             Start a project
           </Link>
@@ -91,8 +124,25 @@ export default function Header() {
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="rounded-full border border-border px-4 py-2 text-sm transition-colors hover:border-accent hover:text-accent md:hidden"
+            className="flex items-center gap-2 border border-border px-4 py-3 font-mono text-[11px] uppercase leading-none tracking-[0.18em] transition-colors hover:border-accent hover:text-accent lg:hidden"
           >
+            <span className="flex h-2.5 w-2.5 flex-col justify-between">
+              <span
+                className={`h-px w-full bg-current transition-transform duration-300 ${
+                  open ? "translate-y-[5px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`h-px w-full bg-current transition-opacity duration-200 ${
+                  open ? "opacity-0" : ""
+                }`}
+              />
+              <span
+                className={`h-px w-full bg-current transition-transform duration-300 ${
+                  open ? "-translate-y-[5px] -rotate-45" : ""
+                }`}
+              />
+            </span>
             {open ? "Close" : "Menu"}
           </button>
         </div>
@@ -103,38 +153,46 @@ export default function Header() {
           <motion.div
             id="mobile-menu"
             key="mobile-menu"
-            initial={reduceMotion ? false : { height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={reduceMotion ? { opacity: 0 } : { height: 0, opacity: 0 }}
-            transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden border-t border-border md:hidden"
+            initial={reduceMotion ? { opacity: 1 } : { opacity: 0, y: -16 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -16 }}
+            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            className="blueprint max-h-[calc(100svh-4.25rem)] overflow-y-auto border-t border-border bg-background lg:hidden"
           >
             <nav
               aria-label="Mobile"
-              className="shell flex flex-col gap-1 px-6 py-6"
+              className="shell flex flex-col px-6 py-4 md:px-12"
             >
-              {site.nav.map((item) => (
+              {site.nav.map((item, index) => (
                 <Link
                   key={item.href}
                   href={item.href}
                   onClick={closeMenu}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className={`border-b border-border py-4 font-display text-2xl font-light transition-colors ${
-                    pathname === item.href
-                      ? "text-accent"
-                      : "text-foreground hover:text-accent"
-                  }`}
+                  className="group flex items-baseline gap-5 border-b border-border py-5"
                 >
-                  {item.label}
+                  <span className="font-mono text-[11px] tracking-[0.2em] text-accent">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <span
+                    className={`display-title text-3xl leading-none transition-colors md:text-4xl ${
+                      pathname === item.href
+                        ? "text-accent"
+                        : "group-hover:text-accent"
+                    }`}
+                  >
+                    {item.label}
+                  </span>
                 </Link>
               ))}
-              <Link
-                href="/contact"
-                onClick={closeMenu}
-                className="mt-6 inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-accent/85"
-              >
-                Start Project
-              </Link>
+              <div className="flex flex-col gap-2 py-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+                <a href={`mailto:${site.email}`} className="hover:text-accent">
+                  {site.email}
+                </a>
+                <a href={`tel:${site.phoneHref}`} className="hover:text-accent">
+                  {site.phone}
+                </a>
+              </div>
             </nav>
           </motion.div>
         ) : null}

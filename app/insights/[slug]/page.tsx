@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function Block({ block }: { block: ArticleBlock }) {
   if (block.type === "h2") {
     return (
-      <h2 className="mt-14 font-display text-2xl font-light md:text-3xl">
+      <h2 className="display-title mt-14 text-2xl leading-tight md:text-3xl">
         {block.text}
       </h2>
     );
@@ -58,7 +58,7 @@ function Block({ block }: { block: ArticleBlock }) {
             key={item}
             className="flex gap-3 text-sm leading-relaxed text-muted md:text-base"
           >
-            <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" />
+            <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-accent" />
             {item}
           </li>
         ))}
@@ -97,9 +97,12 @@ export default async function ArticlePage({ params }: Props) {
               ← All insights
             </Link>
 
-            <p className="mt-10 text-xs uppercase tracking-widest text-muted">
-              {article.category} · {formatDate(article.date)} ·{" "}
-              {article.readingTime}
+            <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.18em]">
+              <span className="text-accent">{article.category}</span>
+              <span className="mx-2 text-muted/50">/</span>
+              <span className="text-muted">{formatDate(article.date)}</span>
+              <span className="mx-2 text-muted/50">/</span>
+              <span className="text-muted">{article.readingTime}</span>
             </p>
 
             <h1 className="display-title mt-5 text-4xl leading-[1.05] md:text-6xl">
@@ -125,7 +128,7 @@ export default async function ArticlePage({ params }: Props) {
         action={
           <Link
             href="/insights"
-            className="text-sm text-muted transition-colors hover:text-foreground"
+            className="link-slide font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-accent"
           >
             All posts →
           </Link>

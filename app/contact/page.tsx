@@ -46,17 +46,17 @@ export default function ContactPage() {
       />
 
       <Section label="Contact information" title="Ways to reach us.">
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-border sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid border-l border-t border-border sm:grid-cols-2 lg:grid-cols-4">
           {contactChannels.map((channel, index) => {
             const content = (
               <>
-                <span className="text-sm text-muted">
+                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-6 text-xs uppercase tracking-widest text-accent">
+                <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
                   {channel.label}
                 </p>
-                <p className="mt-3 font-display text-lg font-light leading-snug break-words md:text-xl">
+                <p className="display-title mt-3 text-lg leading-snug break-words md:text-xl">
                   {channel.value}
                 </p>
                 {channel.detail ? (
@@ -69,7 +69,7 @@ export default function ContactPage() {
 
             return (
               <Reveal key={channel.label} delay={index * 0.06} y={20}>
-                <div className="h-full bg-background p-8 transition-colors duration-300 hover:bg-accent/5">
+                <div className="group h-full border-b border-r border-border p-7 transition-colors duration-300 hover:bg-elevated/70">
                   {channel.href ? (
                     <a
                       href={channel.href}
@@ -93,18 +93,18 @@ export default function ContactPage() {
         contentClassName="grid gap-10 md:grid-cols-12 md:gap-12"
       >
         <div className="md:col-span-4">
-          <ol className="space-y-8">
+          <ol className="space-y-8 border-t border-border pt-6">
             {steps.map((step, index) => (
-              <li key={step.title} className="border-t border-border pt-5">
-                <div className="mb-3 flex items-center gap-3">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-accent/10 text-xs text-accent">
-                    {index + 1}
+              <li key={step.title}>
+                <div className="mb-3 flex items-baseline gap-4">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                    {String(index + 1).padStart(2, "0")}
                   </span>
-                  <h3 className="font-display text-lg font-light">
+                  <h3 className="display-title text-lg md:text-xl">
                     {step.title}
                   </h3>
                 </div>
-                <p className="text-sm leading-relaxed text-muted">
+                <p className="pl-[2.4rem] text-sm leading-relaxed text-muted">
                   {step.description}
                 </p>
               </li>
