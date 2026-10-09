@@ -10,7 +10,7 @@ const inputClass =
   "w-full rounded-none border border-border bg-surface px-4 py-3.5 text-sm text-foreground transition-colors placeholder:text-muted/60 focus:border-accent focus:outline-none focus:ring-0";
 
 const labelClass =
-  "mb-2 block font-mono text-[11px] uppercase tracking-[0.18em] text-muted";
+  "mb-2 block font-sans text-[11px] text-muted";
 
 function Field({
   label,
@@ -145,7 +145,7 @@ export default function ContactForm() {
       />
 
       <fieldset className="sm:col-span-2">
-        <legend className="mb-3 block font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+        <legend className="mb-3 block font-sans text-[11px] text-muted">
           Services{" "}
           <span className="text-muted/60"> (select one or more)</span>
         </legend>
@@ -159,7 +159,7 @@ export default function ContactForm() {
                 type="button"
                 aria-pressed={active}
                 onClick={() => toggleType(type)}
-                className={`border px-4 py-2.5 font-mono text-[11px] uppercase tracking-[0.14em] transition-colors duration-300 ${
+                className={`border px-4 py-2.5 font-sans text-[11px] transition-colors duration-300 ${
                   active
                     ? "border-accent bg-accent text-white"
                     : "border-border text-muted hover:border-accent hover:text-accent"
@@ -195,7 +195,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={sending}
-          className="group/send inline-flex items-center justify-center gap-3 border border-accent bg-accent px-6 py-4 font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background disabled:cursor-not-allowed disabled:opacity-60"
+          className="group/send inline-flex items-center justify-center gap-3 border border-accent bg-accent px-6 py-4 font-sans text-[11px] leading-none text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background disabled:cursor-not-allowed disabled:opacity-60"
         >
           {sending ? "Sending…" : "Send message"}
           <span className="transition-transform duration-300 group-hover/send:translate-x-1">

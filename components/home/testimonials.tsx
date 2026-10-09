@@ -24,7 +24,7 @@ export default function Testimonials() {
     <Section index="05" label="What clients say" title="Trusted by teams that ship.">
       <div className="reg-marks relative grid border border-border md:grid-cols-12">
         <div className="relative overflow-hidden p-7 md:col-span-7 md:p-10 lg:col-span-8 lg:p-14">
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+          <p className="font-sans text-[11px] text-accent">
             Testimonial {String(active + 1).padStart(2, "0")} /{" "}
             {String(testimonials.length).padStart(2, "0")}
           </p>
@@ -40,7 +40,7 @@ export default function Testimonials() {
               <blockquote className="display-title mt-6 text-[clamp(1.4rem,3vw,2.75rem)] leading-[1.15]">
                 “{current.quote}”
               </blockquote>
-              <figcaption className="mt-8 border-t border-border pt-5 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+              <figcaption className="mt-8 border-t border-border pt-5 font-sans text-[11px] text-muted">
                 <span className="text-foreground">{current.name}</span>
                 <span className="mx-2 text-accent">/</span>
                 {current.role}
@@ -79,12 +79,12 @@ export default function Testimonials() {
                   <span className="display-title block truncate text-base md:text-lg">
                     {testimonial.name}
                   </span>
-                  <span className="mt-1 block truncate font-mono text-[10px] uppercase tracking-[0.15em] text-muted">
+                  <span className="mt-1 block truncate font-sans text-[10px] text-muted">
                     {testimonial.role}
                   </span>
                 </span>
                 <span
-                  className={`ml-auto font-mono text-[11px] transition-colors ${
+                  className={`ml-auto font-sans text-[11px] transition-colors ${
                     isActive ? "text-accent" : "text-muted/50"
                   }`}
                   aria-hidden="true"

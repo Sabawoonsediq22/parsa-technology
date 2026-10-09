@@ -37,11 +37,11 @@ export default function Section({
             <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
               <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
                 {index ? (
-                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                  <span className="font-sans text-[11px] text-accent">
                     [ {index} ]
                   </span>
                 ) : null}
-                {label ? <p className="eyebrow">{label}</p> : null}
+                {label ? <p className="text-[11px] text-muted">{label}</p> : null}
               </div>
               {action}
             </div>

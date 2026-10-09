@@ -24,12 +24,12 @@ export default function ProjectCard({
           <h3 className="display-title text-xl leading-snug transition-colors duration-300 group-hover:text-accent md:text-2xl">
             {project.name}
           </h3>
-          <p className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+          <p className="mt-2 font-sans text-[11px] text-muted">
             {project.tag}
           </p>
         </div>
         <span
-          className="shrink-0 font-mono text-base text-muted/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent"
+          className="shrink-0 font-sans text-base text-muted/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent"
           aria-hidden="true"
         >
           →

@@ -8,7 +8,7 @@ export default function FaqList({ items }: { items: Faq[] }) {
         <Reveal key={item.question} y={16}>
           <details className="group border-b border-border">
             <summary className="flex cursor-pointer list-none items-start gap-5 py-6 transition-colors hover:text-accent md:gap-8">
-              <span className="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              <span className="mt-2 font-sans text-[11px] text-accent">
                 {String(index + 1).padStart(2, "0")}
               </span>
               <span className="display-title flex-1 text-lg leading-snug md:text-2xl">

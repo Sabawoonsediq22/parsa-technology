@@ -10,7 +10,7 @@ export default function NotFound() {
       >
         404
       </span>
-      <p className="eyebrow mt-8">— Signal lost</p>
+      <p className="mt-8 text-[11px] text-muted">— Signal lost</p>
       <h1 className="display-title mt-5 text-[clamp(2rem,6vw,4.5rem)] leading-[0.95]">
         This page <span className="mark">moved on</span>.
       </h1>
@@ -21,7 +21,7 @@ export default function NotFound() {
         <OutlineLink href="/">Back to home</OutlineLink>
         <Link
           href="/contact"
-          className="link-slide font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-accent"
+          className="link-slide font-sans text-[11px] text-muted transition-colors hover:text-accent"
         >
           Contact us →
         </Link>

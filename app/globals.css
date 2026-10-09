@@ -17,8 +17,6 @@
     system-ui, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
     "Segoe UI", sans-serif;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, Menlo,
-    monospace;
 }
 
 /* Light is the default theme: the palette lives on :root so it applies
@@ -104,15 +102,6 @@
       padding-block: 7rem;
       padding-inline: 3rem;
     }
-  }
-
-  .eyebrow,
-  .mono-label {
-    font-size: 0.6875rem;
-    line-height: 1.4;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--app-muted);
   }
 
   .display-title {

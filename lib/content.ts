@@ -42,7 +42,7 @@ export const site = {
     { title: "Website Development", short: "Website Development" },
     { title: "Web Application Development", short: "Web application" },
     { title: "Mobile Application Development", short: "Mobile Application" },
-    { title: "Desktop Software Development", short: "Desktop Software" },
+    { title: "Desktop Application Development", short: "Desktop Software" },
     { title: "UI/UX Design", short: "UI/UX Design" },
     { title: "Domain Registration & Hosting", short: "Domain & Hosting" },
   ],
@@ -75,7 +75,7 @@ export const services: Service[] = [
   },
   {
     index: "04",
-    title: "Desktop Software Development",
+    title: "Desktop Application Development",
     description:
       "Offline-first desktop tools with Tauri and Electron, packaged and auto-updated across Windows, macOS and Linux.",
   },

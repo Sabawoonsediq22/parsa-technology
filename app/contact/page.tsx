@@ -50,10 +50,10 @@ export default function ContactPage() {
           {contactChannels.map((channel, index) => {
             const content = (
               <>
-                <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                <span className="font-sans text-[11px] text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <p className="mt-6 font-mono text-[11px] uppercase tracking-[0.2em] text-muted">
+                <p className="mt-6 font-sans text-[11px] text-muted">
                   {channel.label}
                 </p>
                 <p className="display-title mt-3 text-lg leading-snug break-words md:text-xl">
@@ -97,7 +97,7 @@ export default function ContactPage() {
             {steps.map((step, index) => (
               <li key={step.title}>
                 <div className="mb-3 flex items-baseline gap-4">
-                  <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                  <span className="font-sans text-[11px] text-accent">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <h3 className="display-title text-lg md:text-xl">

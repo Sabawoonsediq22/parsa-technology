@@ -27,7 +27,7 @@ export default function Stack() {
             key={group.group}
             className="group border-b border-r border-border p-6 transition-colors duration-300 hover:bg-elevated/60 md:p-8"
           >
-            <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+            <p className="mb-6 font-sans text-[11px] text-accent">
               {group.group}
             </p>
             <ul className="flex flex-col gap-3">

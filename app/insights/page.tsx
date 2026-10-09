@@ -43,7 +43,7 @@ export default function InsightsPage() {
               />
             </div>
             <div className="flex flex-col justify-center md:col-span-5">
-              <p className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em]">
+              <p className="mb-4 flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[11px]">
                 <span className="text-accent">{featured.category}</span>
                 <span className="text-muted/50">/</span>
                 <span className="text-muted">{formatDate(featured.date)}</span>
@@ -56,7 +56,7 @@ export default function InsightsPage() {
               <p className="mt-5 text-sm leading-relaxed text-muted md:text-base">
                 {featured.excerpt}
               </p>
-              <span className="mt-8 inline-flex w-fit items-center gap-3 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors group-hover:border-accent group-hover:text-accent">
+              <span className="mt-8 inline-flex w-fit items-center gap-3 border-t border-border pt-4 font-sans text-[11px] text-muted transition-colors group-hover:border-accent group-hover:text-accent">
                 Read article
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →

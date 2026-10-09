@@ -147,7 +147,7 @@ export default function Visual({
           <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10" />
         </div>
 
-        <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-white/15 px-4 py-2.5 font-mono text-[10px] uppercase tracking-[0.18em] text-white/70">
+        <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-white/15 px-4 py-2.5 font-sans text-[10px] text-white/70">
           <span className="truncate">{label ?? "Parsa Technology"}</span>
           <span className="ml-3 shrink-0 text-accent">{year ?? index}</span>
         </div>

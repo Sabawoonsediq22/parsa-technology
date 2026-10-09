@@ -33,9 +33,9 @@ export default function PageHero({
               className="inline-block h-2 w-2 animate-pulse bg-accent"
               aria-hidden="true"
             />
-            <p className="eyebrow">{label}</p>
+            <p className="text-[11px] text-muted">{label}</p>
             {meta ? (
-              <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              <span className="font-sans text-[11px] text-accent">
                 / {meta}
               </span>
             ) : null}

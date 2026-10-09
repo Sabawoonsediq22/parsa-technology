@@ -41,7 +41,7 @@ export default function AboutPage() {
                 “Understand the problem completely, design deliberately, and
                 ship software that holds up long after launch.”
               </p>
-              <footer className="mt-6 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+              <footer className="mt-6 border-t border-border pt-4 font-sans text-[11px] text-muted">
                 How every Parsa engagement is scoped
               </footer>
             </blockquote>
@@ -57,7 +57,7 @@ export default function AboutPage() {
           {coreValues.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.06} y={20}>
               <div className="group h-full border-b border-r border-border p-7 transition-colors duration-300 hover:bg-elevated/70 md:p-10">
-                <span className="mb-6 block font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                <span className="mb-6 block font-sans text-[11px] text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="display-title text-2xl leading-tight transition-transform duration-300 group-hover:translate-x-1 md:text-3xl">
@@ -77,7 +77,7 @@ export default function AboutPage() {
           {whyUs.map((reason, index) => (
             <Reveal key={reason.title} delay={index * 0.05} y={24}>
               <div className="group h-full border-t border-border pt-6 transition-colors duration-300 hover:border-accent">
-                <span className="mb-5 block font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+                <span className="mb-5 block font-sans text-[11px] text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
                 <h3 className="display-title text-xl leading-snug md:text-2xl">

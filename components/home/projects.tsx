@@ -26,7 +26,7 @@ export default function Projects() {
       <div className="mt-8 flex flex-col items-start justify-between gap-5 border-t border-border pt-6 md:flex-row md:items-center md:justify-end">
         <Link
           href="/projects"
-          className="group/browse inline-flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-foreground transition-colors hover:text-accent"
+          className="group/browse inline-flex items-center gap-3 font-sans text-[11px] text-foreground transition-colors hover:text-accent"
         >
           Browse all projects
           <span className="flex h-10 w-10 items-center justify-center border border-border transition-colors group-hover/browse:border-accent group-hover/browse:bg-accent group-hover/browse:text-white">

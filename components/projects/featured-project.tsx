@@ -34,7 +34,7 @@ export default function FeaturedProject({
 
       <div className={`md:col-span-5 ${flipped ? "md:order-1" : ""}`}>
         <Reveal>
-          <p className="eyebrow flex items-center gap-3">
+          <p className="flex items-center gap-3 text-[11px] text-muted">
             <span className="inline-block h-2 w-2 bg-accent" aria-hidden="true" />
             Featured · {project.tag}
           </p>
@@ -47,7 +47,7 @@ export default function FeaturedProject({
 
           <dl className="mt-8 space-y-6 border-t border-border pt-6">
             <div>
-              <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              <dt className="font-sans text-[11px] text-accent">
                 Challenge
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-muted">
@@ -55,7 +55,7 @@ export default function FeaturedProject({
               </dd>
             </div>
             <div>
-              <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              <dt className="font-sans text-[11px] text-accent">
                 Approach
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-muted">
@@ -63,7 +63,7 @@ export default function FeaturedProject({
               </dd>
             </div>
             <div>
-              <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
+              <dt className="font-sans text-[11px] text-accent">
                 Outcome
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-muted">
@@ -76,7 +76,7 @@ export default function FeaturedProject({
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="border border-border px-3 py-2 font-mono text-[10px] uppercase tracking-[0.14em] text-muted transition-colors duration-300 hover:border-accent hover:text-accent"
+                className="border border-border px-3 py-2 font-sans text-[10px] text-muted transition-colors duration-300 hover:border-accent hover:text-accent"
               >
                 {tech}
               </li>

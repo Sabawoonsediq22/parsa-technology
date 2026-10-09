@@ -24,7 +24,7 @@ export default function ArticleCard({
           ratio="pt-[70%] md:pt-[72%]"
           className="mb-5"
         />
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-mono text-[11px] uppercase tracking-[0.18em]">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[11px]">
           <span className="text-accent">{article.category}</span>
           <span className="text-muted/50">/</span>
           <span className="text-muted">{formatDate(article.date)}</span>
@@ -39,7 +39,7 @@ export default function ArticleCard({
             {article.excerpt}
           </p>
         ) : null}
-        <span className="mt-5 flex w-full items-center justify-between gap-3 border-t border-border pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
+        <span className="mt-5 flex w-full items-center justify-between gap-3 border-t border-border pt-4 font-sans text-[11px] text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
           Read article
           <span className="transition-transform duration-300 group-hover:translate-x-1">
             →

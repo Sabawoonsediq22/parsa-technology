@@ -36,7 +36,7 @@ export default function Hero() {
             className="inline-block h-2 w-2 animate-pulse bg-accent"
             aria-hidden="true"
           />
-          <p className="eyebrow">
+          <p className="text-sm text-muted">
             Software development company — websites, web apps, mobile apps &amp;
             desktop apps
           </p>

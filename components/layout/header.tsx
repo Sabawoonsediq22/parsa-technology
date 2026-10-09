@@ -79,7 +79,7 @@ export default function Header() {
             <span className="font-display text-lg font-medium tracking-tight md:text-xl">
               Parsa
             </span>
-            <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.3em] text-muted">
+            <span className="mt-1 font-sans text-[9px] text-muted">
               Technology
             </span>
           </span>
@@ -96,7 +96,7 @@ export default function Header() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`group relative font-mono text-[11px] uppercase tracking-[0.18em] transition-colors ${
+                className={`group relative font-sans text-[11px] transition-colors ${
                   active ? "text-accent" : "text-muted hover:text-foreground"
                 }`}
               >
@@ -115,7 +115,7 @@ export default function Header() {
           <ThemeToggle />
           <Link
             href="/contact"
-            className="hidden border border-accent bg-accent px-5 py-3 font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background md:inline-flex"
+            className="hidden border border-accent bg-accent px-5 py-3 font-sans text-[11px] leading-none text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background md:inline-flex"
           >
             Start a project
           </Link>
@@ -124,7 +124,7 @@ export default function Header() {
             onClick={() => setOpen((value) => !value)}
             aria-expanded={open}
             aria-controls="mobile-menu"
-            className="flex items-center gap-2 border border-border px-4 py-3 font-mono text-[11px] uppercase leading-none tracking-[0.18em] transition-colors hover:border-accent hover:text-accent lg:hidden"
+            className="flex items-center gap-2 border border-border px-4 py-3 font-sans text-[11px] leading-none transition-colors hover:border-accent hover:text-accent lg:hidden"
           >
             <span className="flex h-2.5 w-2.5 flex-col justify-between">
               <span
@@ -171,7 +171,7 @@ export default function Header() {
                   aria-current={pathname === item.href ? "page" : undefined}
                   className="group flex items-baseline gap-5 border-border py-5"
                 >
-                  <span className="font-mono text-[11px] tracking-[0.2em] text-accent">
+                  <span className="font-sans text-[11px] text-accent">
                     {String(index + 1).padStart(2, "0")}
                   </span>
                   <span
@@ -185,7 +185,7 @@ export default function Header() {
                   </span>
                 </Link>
               ))}
-              <div className="flex flex-col gap-2 py-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+              <div className="flex flex-col gap-2 py-6 font-sans text-[11px] text-muted">
                 <a href={`mailto:${site.email}`} className="hover:text-accent">
                   {site.email}
                 </a>

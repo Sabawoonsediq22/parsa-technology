@@ -97,7 +97,7 @@ export default async function ArticlePage({ params }: Props) {
               ← All insights
             </Link>
 
-            <p className="mt-10 font-mono text-[11px] uppercase tracking-[0.18em]">
+            <p className="mt-10 font-sans text-[11px]">
               <span className="text-accent">{article.category}</span>
               <span className="mx-2 text-muted/50">/</span>
               <span className="text-muted">{formatDate(article.date)}</span>
@@ -128,7 +128,7 @@ export default async function ArticlePage({ params }: Props) {
         action={
           <Link
             href="/insights"
-            className="link-slide font-mono text-[11px] uppercase tracking-[0.18em] text-muted transition-colors hover:text-accent"
+            className="link-slide font-sans text-[11px] text-muted transition-colors hover:text-accent"
           >
             All posts →
           </Link>

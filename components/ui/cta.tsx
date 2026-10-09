@@ -35,7 +35,7 @@ export default function Cta({
             aria-hidden="true"
           />
 
-          <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-white/75">
+          <p className="font-sans text-[11px] text-white/75">
             — {label}
           </p>
 
@@ -45,7 +45,7 @@ export default function Cta({
 
           <Link
             href={linkHref}
-            className="group/cta mt-10 inline-flex items-center gap-4 border border-white/60 px-6 py-4 font-mono text-[11px] uppercase leading-none tracking-[0.18em] text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-accent md:mt-12"
+            className="group/cta mt-10 inline-flex items-center gap-4 border border-white/60 px-6 py-4 font-sans text-[11px] leading-none text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-accent md:mt-12"
           >
             {linkLabel}
             <svg
