@@ -2,11 +2,6 @@
 
 Build the website for **Parsa Technology**.
 
-Use the same visual design language, layout structure, typography system, content hierarchy, section composition, navigation style, interaction patterns, and overall aesthetic as the website below:
-
-https://moujtech.com/
-
-I want the final result to feel like the same level of design quality and sophistication, but adapted for Parsa Technology with its own branding, content, and color palette.
 
 ---
 

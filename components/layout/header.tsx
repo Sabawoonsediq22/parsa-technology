@@ -56,7 +56,7 @@ export default function Header() {
     >
       <motion.div
         style={{ scaleX: progress }}
-        className="absolute inset-x-0 top-0 h-[2px] origin-left bg-accent"
+        className="absolute inset-x-0 top-0 h-0.5 origin-left bg-accent"
         aria-hidden="true"
       />
 
@@ -129,7 +129,7 @@ export default function Header() {
             <span className="flex h-2.5 w-2.5 flex-col justify-between">
               <span
                 className={`h-px w-full bg-current transition-transform duration-300 ${
-                  open ? "translate-y-[5px] rotate-45" : ""
+                  open ? "translate-y-1.25 rotate-45" : ""
                 }`}
               />
               <span
@@ -139,7 +139,7 @@ export default function Header() {
               />
               <span
                 className={`h-px w-full bg-current transition-transform duration-300 ${
-                  open ? "-translate-y-[5px] -rotate-45" : ""
+                  open ? "-translate-y-1.25 -rotate-45" : ""
                 }`}
               />
             </span>
@@ -157,7 +157,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="blueprint max-h-[calc(100svh-4.25rem)] overflow-y-auto border-t border-border bg-background lg:hidden"
+            className="blueprint min-h-screen overflow-y-auto border-t border-border bg-background lg:hidden"
           >
             <nav
               aria-label="Mobile"
@@ -169,7 +169,7 @@ export default function Header() {
                   href={item.href}
                   onClick={closeMenu}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className="group flex items-baseline gap-5 border-b border-border py-5"
+                  className="group flex items-baseline gap-5 border-border py-5"
                 >
                   <span className="font-mono text-[11px] tracking-[0.2em] text-accent">
                     {String(index + 1).padStart(2, "0")}

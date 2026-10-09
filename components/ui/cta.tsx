@@ -19,7 +19,7 @@ export default function Cta({
     <section className="on-accent relative overflow-hidden border-t border-border bg-accent text-white">
       <div className="blueprint absolute inset-0 opacity-70" aria-hidden="true" />
       <div
-        className="absolute right-[-15%] top-1/2 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full opacity-30 blur-[120px]"
+        className="absolute right-[-15%] top-1/2 h-112 w-md -translate-y-1/2 rounded-full opacity-30 blur-[120px]"
         aria-hidden="true"
         style={{ backgroundColor: "#ffffff" }}
       />

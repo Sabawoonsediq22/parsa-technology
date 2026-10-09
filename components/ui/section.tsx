@@ -34,7 +34,7 @@ export default function Section({
       <div className="shell">
         {hasHeader ? (
           <Reveal className="mb-10 md:mb-16">
-            <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4 border-b border-border pb-4">
+            <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
               <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
                 {index ? (
                   <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent">

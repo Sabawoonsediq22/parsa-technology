@@ -17,7 +17,7 @@ export default function Services() {
           <Reveal key={service.title} delay={index * 0.04} y={16}>
             <div className="group relative grid items-baseline gap-x-6 gap-y-3 border-b border-border py-7 transition-colors duration-300 hover:bg-elevated/70 md:grid-cols-12 md:py-9">
               <span
-                className="absolute -left-3 top-0 h-full w-[3px] origin-top scale-y-0 bg-accent transition-transform duration-500 group-hover:scale-y-100 md:-left-5"
+                className="absolute -left-3 top-0 h-full w-0.75 origin-top scale-y-0 bg-accent transition-transform duration-500 group-hover:scale-y-100 md:-left-5"
                 aria-hidden="true"
               />
               <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent md:col-span-1">

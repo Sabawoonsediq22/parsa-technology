@@ -199,25 +199,6 @@
     border-top: 0;
   }
 
-  /* Marquee ticker */
-  .marquee {
-    overflow: hidden;
-  }
-
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    animation: marquee-scroll var(--marquee-duration, 42s) linear infinite;
-  }
-
-  .marquee--reverse .marquee-track {
-    animation-direction: reverse;
-  }
-
-  .marquee:hover .marquee-track {
-    animation-play-state: paused;
-  }
-
   .hide-scrollbar {
     scrollbar-width: none;
     -ms-overflow-style: none;
@@ -240,22 +221,9 @@
   }
 }
 
-@keyframes marquee-scroll {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(-50%, 0, 0);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-
-  .marquee-track {
-    animation: none;
   }
 
   *,

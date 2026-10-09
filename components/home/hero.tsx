@@ -3,8 +3,7 @@
 import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { OutlineLink, PrimaryLink } from "@/components/ui/buttons";
-import Marquee from "@/components/ui/marquee";
-import { services, site } from "@/lib/content";
+import { site } from "@/lib/content";
 
 const headline = ["Software", "that", "helps", "businesses"];
 
@@ -20,7 +19,7 @@ export default function Hero() {
   const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   return (
-    <section className="relative flex min-h-svh flex-col justify-end overflow-hidden pt-32 md:pt-40">
+    <section className="relative flex min-h-svh flex-col justify-end overflow-hidden pb-18 pt-32 md:pb-28 md:pt-40">
       <div
         className="blueprint absolute inset-0"
         aria-hidden="true"
@@ -29,18 +28,10 @@ export default function Hero() {
         }}
       />
       <div
-        className="absolute -right-32 top-10 h-[26rem] w-[26rem] rounded-full blur-[130px]"
+        className="absolute -right-32 top-10 h-104 w-104 rounded-full blur-[130px]"
         aria-hidden="true"
         style={{ backgroundColor: "var(--app-glow)" }}
       />
-      <div
-        className="pointer-events-none absolute inset-0 hidden grid-cols-12 md:grid"
-        aria-hidden="true"
-      >
-        {Array.from({ length: 12 }, (_, i) => (
-          <div key={i} className="border-r border-border/50 last:border-r-0" />
-        ))}
-      </div>
 
       <div className="shell relative flex flex-1 flex-col justify-end px-6 md:px-12">
         <motion.div
@@ -91,7 +82,7 @@ export default function Hero() {
             initial={reduceMotion ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease }}
-            className="self-end border-t border-border pt-5 md:col-span-3 md:border-l md:border-t-0 md:pl-6 md:pt-0 [overflow-wrap:anywhere]"
+            className="self-end border-t border-border pt-5 md:col-span-3 md:border-l md:border-t-0 md:pl-6 md:pt-0 wrap-anywhere"
           >
             <dl className="space-y-4">
               {specs.map((spec) => (
@@ -112,11 +103,11 @@ export default function Hero() {
           initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6, ease }}
-          className="mt-10 flex flex-col gap-8 border-t border-border pt-7 md:mt-14 md:flex-row md:items-start md:justify-between"
+          className="mt-10 flex flex-col gap-8 pt-7 md:mt-14 md:flex-row md:items-start md:justify-between"
         >
           <p className="max-w-xl text-base leading-relaxed text-muted md:text-lg">
-            We design and build websites, web applications, mobile apps,
-            desktop software, and digital solutions that solve real business
+            We design and build <strong>websites</strong>, <strong>web apps</strong>, <strong>mobile apps</strong>,
+            <strong>desktop apps</strong>, and <strong>digital solutions</strong> that solve real business
             problems.
           </p>
           <div className="flex flex-wrap items-center gap-3">
@@ -124,21 +115,6 @@ export default function Hero() {
             <OutlineLink href="/projects">View Projects</OutlineLink>
           </div>
         </motion.div>
-      </div>
-
-      <div className="relative mt-10 border-t border-border bg-surface/70 py-4 backdrop-blur-sm md:mt-14">
-        <Marquee
-          ariaLabel="Services"
-          duration={38}
-          items={services.map((service) => (
-            <span
-              key={service.title}
-              className="font-display text-lg uppercase tracking-tight text-muted md:text-2xl"
-            >
-              {service.title}
-            </span>
-          ))}
-        />
       </div>
     </section>
   );

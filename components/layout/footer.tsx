@@ -32,7 +32,7 @@ function Column({
       <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
         {title}
       </p>
-      <ul className="space-y-2.5 text-sm [overflow-wrap:anywhere]">{children}</ul>
+      <ul className="space-y-2.5 text-sm [wrap:anywhere]">{children}</ul>
     </div>
   );
 }
@@ -54,7 +54,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 grid grid-cols-2 gap-x-8 gap-y-10 border-t border-border pt-10 md:mt-16 md:gap-x-10 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-2 gap-x-8 gap-y-10 pt-10 md:gap-x-10 lg:grid-cols-4">
           <Column title="Company">
             {companyLinks.map((link) => (
               <li key={link.href}>
@@ -128,14 +128,10 @@ export default function Footer() {
           </Column>
         </div>
 
-        <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted md:flex-row md:items-center">
+        <div className="mt-14 flex item-center justify-between gap-3 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
           <p>© {new Date().getFullYear()} {site.name}</p>
-          <p className="flex items-center gap-3">
-            <span className="inline-block h-2 w-2 bg-accent" aria-hidden="true" />
-            {site.availability}
-          </p>
-          <a href="#main-content" className="transition-colors hover:text-accent">
-            Back to top ↑
+          <a href="#main-content" className="transition-colors border border-border p-3 text-white bg-accent">
+            ↑
           </a>
         </div>
       </div>
@@ -145,7 +141,7 @@ export default function Footer() {
         aria-hidden="true"
       >
         <p
-          className="display-title whitespace-nowrap px-4 py-4 text-center text-[clamp(1.75rem,9vw,9rem)] leading-none tracking-[-0.04em] md:py-6"
+          className="display-title whitespace-nowrap px-4 py-8 text-center text-[clamp(1.75rem,9vw,9rem)] leading-none tracking-[-0.04em]"
           style={{
             WebkitTextStroke: "1px var(--app-border)",
             color: "transparent",
