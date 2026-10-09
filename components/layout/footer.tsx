@@ -32,7 +32,7 @@ function Column({
       <p className="mb-5 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
         {title}
       </p>
-      <ul className="space-y-2.5 text-sm [wrap:anywhere]">{children}</ul>
+      <ul className="space-y-2.5 text-sm wrap-anywhere">{children}</ul>
     </div>
   );
 }
@@ -128,7 +128,7 @@ export default function Footer() {
           </Column>
         </div>
 
-        <div className="mt-14 flex item-center justify-between gap-3 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
+        <div className="mt-14 flex items-center justify-between gap-3 border-t border-border pt-6 font-mono text-[11px] uppercase tracking-[0.18em] text-muted">
           <p>© {new Date().getFullYear()} {site.name}</p>
           <a href="#main-content" className="transition-colors border border-border p-3 text-white bg-accent">
             ↑

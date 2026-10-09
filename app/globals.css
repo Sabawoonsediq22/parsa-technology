@@ -21,23 +21,9 @@
     monospace;
 }
 
-/* Dark is the default theme: the palette lives on :root so it applies
-   before hydration and with JavaScript disabled. `.light` swaps it. */
+/* Light is the default theme: the palette lives on :root so it applies
+   before hydration and with JavaScript disabled. `.dark` swaps it. */
 :root {
-  color-scheme: dark;
-  --app-background: #08090b;
-  --app-foreground: #ebedf0;
-  --app-muted: #8b9198;
-  --app-surface: #0b0d10;
-  --app-elevated: #12151a;
-  --app-border: #1f2329;
-  --app-accent: #f32e35;
-  --app-grid-line: rgba(255, 255, 255, 0.045);
-  --app-grid-line-strong: rgba(255, 255, 255, 0.08);
-  --app-glow: rgba(243, 46, 53, 0.22);
-}
-
-.light {
   color-scheme: light;
   --app-background: #f1f0ec;
   --app-foreground: #0a0b0d;
@@ -49,6 +35,20 @@
   --app-grid-line: rgba(10, 11, 13, 0.07);
   --app-grid-line-strong: rgba(10, 11, 13, 0.13);
   --app-glow: rgba(223, 28, 36, 0.16);
+}
+
+.dark {
+  color-scheme: dark;
+  --app-background: #08090b;
+  --app-foreground: #ebedf0;
+  --app-muted: #8b9198;
+  --app-surface: #0b0d10;
+  --app-elevated: #12151a;
+  --app-border: #1f2329;
+  --app-accent: #f32e35;
+  --app-grid-line: rgba(255, 255, 255, 0.045);
+  --app-grid-line-strong: rgba(255, 255, 255, 0.08);
+  --app-glow: rgba(243, 46, 53, 0.22);
 }
 
 @layer base {

@@ -49,7 +49,7 @@ export default function Testimonials() {
           </AnimatePresence>
         </div>
 
-        <div className="grid border-t border-border md:col-span-5 md:border-l md:border-t-0 lg:col-span-4">
+        <div className="grid min-w-0 border-t border-border md:col-span-5 md:border-l md:border-t-0 lg:col-span-4">
           {testimonials.map((testimonial, index) => {
             const isActive = index === active;
             return (
@@ -58,7 +58,7 @@ export default function Testimonials() {
                 type="button"
                 aria-pressed={isActive}
                 onClick={() => setActive(index)}
-                className={`group flex items-center gap-4 border-b border-border p-5 text-left transition-colors duration-300 last:border-b-0 md:p-6 ${
+                className={`group flex min-w-0 items-center gap-4 border-b border-border p-5 text-left transition-colors duration-300 last:border-b-0 md:p-6 ${
                   isActive ? "bg-elevated" : "hover:bg-elevated/60"
                 }`}
               >
@@ -75,7 +75,7 @@ export default function Testimonials() {
                   height={56}
                   className="h-12 w-12 shrink-0 border border-border object-cover grayscale transition-all duration-300 md:h-14 md:w-14"
                 />
-                <span className="min-w-0">
+                <span className="min-w-0 flex-1">
                   <span className="display-title block truncate text-base md:text-lg">
                     {testimonial.name}
                   </span>
