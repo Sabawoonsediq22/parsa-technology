@@ -3,16 +3,8 @@
 import { Fragment } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import { OutlineLink, PrimaryLink } from "@/components/ui/buttons";
-import { site } from "@/lib/content";
 
 const headline = ["Software", "that", "drives"];
-
-const specs = [
-  { key: "Status", value: site.availability },
-  { key: "Setup", value: site.location },
-  { key: "Services", value: `${site.services.length} disciplines` },
-  { key: "Direct", value: site.email },
-];
 
 export default function Hero() {
   const reduceMotion = useReducedMotion();
@@ -50,8 +42,8 @@ export default function Hero() {
           </p>
         </motion.div>
 
-        <div className="mt-8 grid gap-10 md:mt-10 md:grid-cols-12 md:gap-8">
-          <h1 className="display-title text-[clamp(3rem,10.5vw,9.5rem)] leading-[0.88] md:col-span-9">
+        <div className="mt-8 md:mt-10">
+          <h1 className="display-title text-[clamp(3rem,10.5vw,9.5rem)] leading-[0.88]">
             {headline.map((word, index) => (
               <Fragment key={word}>
                 <motion.span
@@ -78,25 +70,6 @@ export default function Hero() {
             </motion.span>
           </h1>
 
-          <motion.aside
-            initial={reduceMotion ? false : { opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.45, ease }}
-            className="self-end border-t border-border pt-5 md:col-span-3 md:border-l md:border-t-0 md:pl-6 md:pt-0 wrap-anywhere"
-          >
-            <dl className="space-y-4">
-              {specs.map((spec) => (
-                <div key={spec.key}>
-                  <dt className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent">
-                    {spec.key}
-                  </dt>
-                  <dd className="mt-1 text-sm leading-snug text-muted">
-                    {spec.value}
-                  </dd>
-                </div>
-              ))}
-            </dl>
-          </motion.aside>
         </div>
 
         <motion.div
@@ -110,9 +83,9 @@ export default function Hero() {
             <strong>desktop apps</strong>, and <strong>digital solutions</strong> that solve real business
             problems.
           </p>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex flex-wrap items-center gap-3">
             <PrimaryLink href="/contact">Start Project</PrimaryLink>
-            <OutlineLink href="/projects">View Projects</OutlineLink>
+            <OutlineLink href="/projects">Projects</OutlineLink>
           </div>
         </motion.div>
       </div>
