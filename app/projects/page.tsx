@@ -51,9 +51,14 @@ export default function ProjectsPage() {
           </p>
         }
       >
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 md:gap-8">
+        <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
-            <Reveal key={project.slug} delay={index * 0.05} y={32}>
+            <Reveal
+              key={project.slug}
+              delay={index * 0.05}
+              y={32}
+              className="h-full"
+            >
               <ProjectCard project={project} index={index} />
             </Reveal>
           ))}

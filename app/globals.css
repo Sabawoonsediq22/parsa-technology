@@ -108,7 +108,6 @@
 
   .eyebrow,
   .mono-label {
-    font-family: var(--font-mono);
     font-size: 0.6875rem;
     line-height: 1.4;
     letter-spacing: 0.2em;

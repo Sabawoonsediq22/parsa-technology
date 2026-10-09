@@ -25,16 +25,16 @@ export default function Stack() {
         {stack.map((group) => (
           <div
             key={group.group}
-            className="border-b border-r border-border p-6 transition-colors duration-300 hover:bg-elevated/60 md:p-8"
+            className="group border-b border-r border-border p-6 transition-colors duration-300 hover:bg-elevated/60 md:p-8"
           >
             <p className="mb-6 font-mono text-[11px] uppercase tracking-[0.2em] text-accent">
               {group.group}
             </p>
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-col gap-3">
               {group.items.map((item) => (
                 <li
                   key={item}
-                  className="border border-border px-3 py-2 font-mono text-[11px] uppercase tracking-[0.12em] text-muted transition-colors duration-300 hover:border-accent hover:text-accent"
+                  className="flex items-center gap-3 text-[16px] font-bold text-muted transition-colors duration-300 group-hover:text-accent"
                 >
                   {item}
                 </li>

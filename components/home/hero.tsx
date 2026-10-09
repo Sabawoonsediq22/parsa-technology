@@ -5,7 +5,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { OutlineLink, PrimaryLink } from "@/components/ui/buttons";
 import { site } from "@/lib/content";
 
-const headline = ["Software", "that", "helps", "businesses"];
+const headline = ["Software", "that", "drives"];
 
 const specs = [
   { key: "Status", value: site.availability },
@@ -45,8 +45,8 @@ export default function Hero() {
             aria-hidden="true"
           />
           <p className="eyebrow">
-            Software development company — websites, web apps, mobile &amp;
-            desktop software
+            Software development company — websites, web apps, mobile apps &amp;
+            desktop apps
           </p>
         </motion.div>
 
@@ -74,7 +74,7 @@ export default function Hero() {
                 ease,
               }}
             >
-              grow.
+              growth.
             </motion.span>
           </h1>
 
@@ -110,7 +110,7 @@ export default function Hero() {
             <strong>desktop apps</strong>, and <strong>digital solutions</strong> that solve real business
             problems.
           </p>
-          <div className="flex flex-wrap items-center gap-3">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <PrimaryLink href="/contact">Start Project</PrimaryLink>
             <OutlineLink href="/projects">View Projects</OutlineLink>
           </div>

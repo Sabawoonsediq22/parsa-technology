@@ -250,7 +250,7 @@ export const stack: StackGroup[] = [
     items: ["Node.js", "Express.js", "PostgreSQL", "SQLite"],
   },
   { group: "Desktop", items: ["Tauri", "Electron"] },
-  { group: "Cloud", items: ["Vercel", "Railway", "Docker"] },
+  { group: "Cloud", items: ["Vercel", "Railway", "Docker", "AWS"] },
 ];
 
 export type Testimonial = {

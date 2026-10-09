@@ -18,7 +18,7 @@ export default function ProjectCard({
 
   return (
     <article className="group h-full">
-      <Visual index={number} year={project.year} ratio={ratio} className="mb-5" />
+      <Visual index={number} year={project.year} ratio={ratio} className="mb-5 rounded" />
       <div className="flex items-start justify-between gap-4 border-t border-border pt-4 transition-colors group-hover:border-accent">
         <div className="min-w-0">
           <h3 className="display-title text-xl leading-snug transition-colors duration-300 group-hover:text-accent md:text-2xl">

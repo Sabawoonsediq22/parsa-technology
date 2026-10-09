@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/content";
-import { PrimaryLink } from "../ui/buttons";
 
 const companyLinks = [
   { label: "About", href: "/about" },
@@ -50,7 +50,28 @@ export default function Footer() {
             </h2>
           </div>
           <div className="md:col-span-4 lg:col-span-5 lg:justify-self-end">
-            <PrimaryLink href="/contact">Start Project</PrimaryLink>
+            <Link
+              href="/"
+              className="inline-flex items-center gap-3"
+              aria-label={`${site.name} — home`}
+            >
+              <Image
+                src="/favicon.svg"
+                alt=""
+                width={36}
+                height={36}
+                loading="eager"
+                className="h-8 w-8 md:h-9 md:w-9"
+              />
+              <span className="flex flex-col leading-none">
+                <span className="font-display text-lg font-medium tracking-tight md:text-xl">
+                  Parsa
+                </span>
+                <span className="mt-1 font-mono text-[9px] uppercase tracking-[0.3em] text-muted">
+                  Technology
+                </span>
+              </span>
+            </Link>
           </div>
         </div>
 
