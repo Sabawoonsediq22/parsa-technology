@@ -44,7 +44,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function Block({ block }: { block: ArticleBlock }) {
   if (block.type === "h2") {
     return (
-      <h2 className="display-title mt-14 text-2xl leading-tight md:text-3xl">
+      <h2 className="font-display font-medium tracking-tight text-balance mt-14 text-2xl md:text-3xl">
         {block.text}
       </h2>
     );
@@ -56,7 +56,7 @@ function Block({ block }: { block: ArticleBlock }) {
         {block.items.map((item) => (
           <li
             key={item}
-            className="flex gap-3 text-sm leading-relaxed text-muted md:text-base"
+            className="flex gap-3 text-base leading-relaxed text-muted"
           >
             <span className="mt-2 h-1.5 w-1.5 shrink-0 bg-accent" />
             {item}
@@ -67,7 +67,7 @@ function Block({ block }: { block: ArticleBlock }) {
   }
 
   return (
-    <p className="mt-6 text-sm leading-relaxed text-muted md:text-base">
+    <p className="mt-6 text-base leading-relaxed text-muted">
       {block.text}
     </p>
   );
@@ -97,7 +97,7 @@ export default async function ArticlePage({ params }: Props) {
               ← All insights
             </Link>
 
-            <p className="mt-10 font-sans text-[11px]">
+            <p className="mt-10 text-xs font-medium">
               <span className="text-accent">{article.category}</span>
               <span className="mx-2 text-muted/50">/</span>
               <span className="text-muted">{formatDate(article.date)}</span>
@@ -105,7 +105,7 @@ export default async function ArticlePage({ params }: Props) {
               <span className="text-muted">{article.readingTime}</span>
             </p>
 
-            <h1 className="display-title mt-5 text-4xl leading-[1.05] md:text-6xl">
+            <h1 className="font-display font-medium tracking-tight text-balance mt-5 text-4xl md:text-6xl">
               {article.title}
             </h1>
 
@@ -128,7 +128,7 @@ export default async function ArticlePage({ params }: Props) {
         action={
           <Link
             href="/insights"
-            className="link-slide font-sans text-[11px] text-muted transition-colors hover:text-accent"
+            className="link-slide text-sm font-medium text-muted transition-colors hover:text-accent"
           >
             All posts →
           </Link>

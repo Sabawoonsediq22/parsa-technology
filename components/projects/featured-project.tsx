@@ -34,20 +34,20 @@ export default function FeaturedProject({
 
       <div className={`md:col-span-5 ${flipped ? "md:order-1" : ""}`}>
         <Reveal>
-          <p className="flex items-center gap-3 text-[11px] text-muted">
+          <p className="flex items-center gap-3 text-sm text-muted">
             <span className="inline-block h-2 w-2 bg-accent" aria-hidden="true" />
             Featured · {project.tag}
           </p>
-          <h3 className="display-title mt-4 text-3xl leading-[1.02] md:text-4xl lg:text-5xl">
+          <h3 className="font-display font-medium tracking-tight text-balance mt-4 text-3xl md:text-4xl lg:text-5xl">
             {project.name}
           </h3>
-          <p className="mt-5 text-sm leading-relaxed text-muted md:text-base">
+          <p className="mt-5 text-sm leading-relaxed text-muted">
             {project.summary}
           </p>
 
           <dl className="mt-8 space-y-6 border-t border-border pt-6">
             <div>
-              <dt className="font-sans text-[11px] text-accent">
+              <dt className="text-xs font-medium text-accent">
                 Challenge
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-muted">
@@ -55,7 +55,7 @@ export default function FeaturedProject({
               </dd>
             </div>
             <div>
-              <dt className="font-sans text-[11px] text-accent">
+              <dt className="text-xs font-medium text-accent">
                 Approach
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-muted">
@@ -63,7 +63,7 @@ export default function FeaturedProject({
               </dd>
             </div>
             <div>
-              <dt className="font-sans text-[11px] text-accent">
+              <dt className="text-xs font-medium text-accent">
                 Outcome
               </dt>
               <dd className="mt-2 text-sm leading-relaxed text-muted">
@@ -76,7 +76,7 @@ export default function FeaturedProject({
             {project.stack.map((tech) => (
               <li
                 key={tech}
-                className="border border-border px-3 py-2 font-sans text-[10px] text-muted transition-colors duration-300 hover:border-accent hover:text-accent"
+                className="border border-border px-3 py-2 text-sm font-medium text-muted transition-colors duration-300 hover:border-accent hover:text-accent"
               >
                 {tech}
               </li>

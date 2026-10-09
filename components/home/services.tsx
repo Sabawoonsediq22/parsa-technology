@@ -20,17 +20,17 @@ export default function Services() {
                 className="absolute -left-3 top-0 h-full w-0.75 origin-top scale-y-0 bg-accent transition-transform duration-500 group-hover:scale-y-100 md:-left-5"
                 aria-hidden="true"
               />
-              <span className="font-sans text-[11px] text-accent md:col-span-1">
+              <span className="text-xs font-medium text-accent md:col-span-1">
                 {service.index}
               </span>
-              <h3 className="display-title text-2xl leading-tight transition-transform duration-300 group-hover:translate-x-1.5 md:col-span-5 md:text-3xl lg:text-4xl">
+              <h3 className="font-display font-medium tracking-tight text-balance text-2xl transition-transform duration-300 group-hover:translate-x-1.5 md:col-span-5 md:text-3xl lg:text-4xl">
                 {service.title}
               </h3>
-              <p className="text-sm leading-relaxed text-muted md:col-span-5 md:text-[15px]">
+              <p className="text-sm leading-relaxed text-muted md:col-span-5">
                 {service.description}
               </p>
               <span
-                className="hidden justify-end font-sans text-lg text-muted/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent md:col-span-1 md:flex"
+                className="hidden justify-end text-lg text-muted/50 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent md:col-span-1 md:flex"
                 aria-hidden="true"
               >
                 →

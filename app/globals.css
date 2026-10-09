@@ -104,13 +104,6 @@
     }
   }
 
-  .display-title {
-    font-family: var(--font-display);
-    font-weight: 500;
-    letter-spacing: -0.035em;
-    text-wrap: balance;
-  }
-
   /* Signature emphasis: words tagged inside display headlines are set in
      italic accent colour instead of an italic flourish. */
   .mark,

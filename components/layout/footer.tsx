@@ -29,7 +29,7 @@ function Column({
 }) {
   return (
     <div className="min-w-0">
-      <p className="mb-5 font-sans text-[11px] text-accent">
+      <p className="mb-5 text-xs font-medium text-accent">
         {title}
       </p>
       <ul className="space-y-2.5 text-sm wrap-anywhere">{children}</ul>
@@ -43,8 +43,8 @@ export default function Footer() {
       <div className="shell px-6 pb-10 pt-16 md:px-12 md:pb-14 md:pt-24">
         <div className="grid items-end gap-8 md:grid-cols-12">
           <div className="md:col-span-8 lg:col-span-7">
-            <p className="mb-6 text-[11px] text-muted">— {site.name}</p>
-            <h2 className="display-title text-[clamp(2rem,4vw,3.5rem)] leading-[0.98]">
+            <p className="mb-6 text-sm text-muted">— {site.name}</p>
+            <h2 className="font-display font-medium tracking-tight text-balance text-3xl md:text-5xl">
               Let&apos;s build something{" "}
               <span className="mark">worth keeping</span>.
             </h2>
@@ -67,7 +67,7 @@ export default function Footer() {
                 <span className="font-display text-lg font-medium tracking-tight md:text-xl">
                   Parsa
                 </span>
-                <span className="mt-1 font-sans text-[9px] text-muted">
+                <span className="mt-1 text-xs font-medium text-muted">
                   Technology
                 </span>
               </span>
@@ -149,7 +149,7 @@ export default function Footer() {
           </Column>
         </div>
 
-        <div className="mt-14 flex items-center justify-between gap-3 border-t border-border pt-6 font-sans text-[11px] text-muted">
+        <div className="mt-14 flex items-center justify-between gap-3 border-t border-border pt-6 text-xs font-medium text-muted">
           <p>© {new Date().getFullYear()} {site.name}</p>
           <a href="#main-content" className="transition-colors border border-border p-3 text-white bg-accent">
             ↑
@@ -162,7 +162,7 @@ export default function Footer() {
         aria-hidden="true"
       >
         <p
-          className="display-title whitespace-nowrap px-4 py-8 text-center text-[clamp(1.75rem,9vw,9rem)] leading-none"
+          className="font-display font-medium tracking-tight text-balance whitespace-nowrap px-4 py-8 text-center text-4xl md:text-9xl leading-none"
           style={{
             WebkitTextStroke: "1px var(--app-border)",
             color: "transparent",

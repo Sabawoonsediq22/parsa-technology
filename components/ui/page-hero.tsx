@@ -33,15 +33,15 @@ export default function PageHero({
               className="inline-block h-2 w-2 animate-pulse bg-accent"
               aria-hidden="true"
             />
-            <p className="text-[11px] text-muted">{label}</p>
+            <p className="text-sm text-muted">{label}</p>
             {meta ? (
-              <span className="font-sans text-[11px] text-accent">
+              <span className="text-xs font-medium text-accent">
                 / {meta}
               </span>
             ) : null}
           </div>
 
-          <h1 className="display-title mt-7 max-w-5xl text-[clamp(2.6rem,7.5vw,6.5rem)] leading-[0.9]">
+          <h1 className="font-display font-medium tracking-tight text-balance mt-7 max-w-5xl text-5xl md:text-7xl lg:text-8xl">
             {title}
           </h1>
 

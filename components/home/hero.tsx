@@ -43,7 +43,7 @@ export default function Hero() {
         </motion.div>
 
         <div className="mt-8 md:mt-10">
-          <h1 className="display-title text-[clamp(3rem,10.5vw,9.5rem)] leading-[0.88]">
+          <h1 className="font-display font-medium tracking-tight text-balance text-6xl md:text-8xl lg:text-9xl leading-none">
             {headline.map((word, index) => (
               <Fragment key={word}>
                 <motion.span

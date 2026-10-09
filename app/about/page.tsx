@@ -27,7 +27,7 @@ export default function AboutPage() {
 
       <Section label="Company story" title={story.lead}>
         <div className="grid gap-10 md:grid-cols-12">
-          <div className="space-y-6 text-sm leading-relaxed text-muted md:col-span-6 md:text-base">
+          <div className="space-y-6 text-sm leading-relaxed text-muted md:col-span-6">
             {story.paragraphs.slice(0, 2).map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -37,11 +37,11 @@ export default function AboutPage() {
             className="md:col-span-5 md:col-start-8 md:self-end"
           >
             <blockquote className="reg-marks relative border border-border p-7 md:p-8">
-              <p className="display-title text-xl leading-snug md:text-2xl">
+              <p className="font-display font-medium tracking-tight text-balance text-xl md:text-2xl">
                 “Understand the problem completely, design deliberately, and
                 ship software that holds up long after launch.”
               </p>
-              <footer className="mt-6 border-t border-border pt-4 font-sans text-[11px] text-muted">
+              <footer className="mt-6 border-t border-border pt-4 text-xs font-medium text-muted">
                 How every Parsa engagement is scoped
               </footer>
             </blockquote>
@@ -57,10 +57,10 @@ export default function AboutPage() {
           {coreValues.map((value, index) => (
             <Reveal key={value.title} delay={index * 0.06} y={20}>
               <div className="group h-full border-b border-r border-border p-7 transition-colors duration-300 hover:bg-elevated/70 md:p-10">
-                <span className="mb-6 block font-sans text-[11px] text-accent">
+                <span className="mb-6 block text-xs font-medium text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="display-title text-2xl leading-tight transition-transform duration-300 group-hover:translate-x-1 md:text-3xl">
+                <h3 className="font-display font-medium tracking-tight text-balance text-2xl transition-transform duration-300 group-hover:translate-x-1 md:text-3xl">
                   {value.title}
                 </h3>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-muted">
@@ -77,10 +77,10 @@ export default function AboutPage() {
           {whyUs.map((reason, index) => (
             <Reveal key={reason.title} delay={index * 0.05} y={24}>
               <div className="group h-full border-t border-border pt-6 transition-colors duration-300 hover:border-accent">
-                <span className="mb-5 block font-sans text-[11px] text-accent">
+                <span className="mb-5 block text-xs font-medium text-accent">
                   {String(index + 1).padStart(2, "0")}
                 </span>
-                <h3 className="display-title text-xl leading-snug md:text-2xl">
+                <h3 className="font-display font-medium tracking-tight text-balance text-xl md:text-2xl">
                   {reason.title}
                 </h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted">

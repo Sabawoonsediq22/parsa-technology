@@ -37,16 +37,16 @@ export default function Section({
             <div className="flex flex-wrap items-baseline justify-between gap-x-8 gap-y-4">
               <div className="flex flex-wrap items-baseline gap-x-5 gap-y-2">
                 {index ? (
-                  <span className="font-sans text-[11px] text-accent">
+                  <span className="text-xs font-medium text-accent">
                     [ {index} ]
                   </span>
                 ) : null}
-                {label ? <p className="text-[11px] text-muted">{label}</p> : null}
+                {label ? <p className="text-sm text-muted">{label}</p> : null}
               </div>
               {action}
             </div>
             {title ? (
-              <h2 className="display-title mt-6 text-[clamp(2.25rem,5.2vw,4.75rem)] leading-[0.94]">
+              <h2 className="font-display font-medium tracking-tight text-balance mt-6 text-4xl md:text-6xl lg:text-7xl">
                 {title}
               </h2>
             ) : null}

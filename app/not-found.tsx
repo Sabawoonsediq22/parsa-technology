@@ -5,13 +5,13 @@ export default function NotFound() {
   return (
     <section className="blueprint section flex min-h-[75vh] flex-col items-center justify-center text-center">
       <span
-        className="display-title stroked block text-[clamp(5rem,18vw,12rem)] leading-none"
+        className="font-display font-medium tracking-tight text-balance stroked block text-8xl md:text-9xl leading-none"
         aria-hidden="true"
       >
         404
       </span>
-      <p className="mt-8 text-[11px] text-muted">— Signal lost</p>
-      <h1 className="display-title mt-5 text-[clamp(2rem,6vw,4.5rem)] leading-[0.95]">
+      <p className="mt-8 text-sm text-muted">— Signal lost</p>
+      <h1 className="font-display font-medium tracking-tight text-balance mt-5 text-4xl md:text-6xl">
         This page <span className="mark">moved on</span>.
       </h1>
       <p className="mt-6 max-w-md text-sm leading-relaxed text-muted">
@@ -21,7 +21,7 @@ export default function NotFound() {
         <OutlineLink href="/">Back to home</OutlineLink>
         <Link
           href="/contact"
-          className="link-slide font-sans text-[11px] text-muted transition-colors hover:text-accent"
+          className="link-slide text-sm font-medium text-muted transition-colors hover:text-accent"
         >
           Contact us →
         </Link>

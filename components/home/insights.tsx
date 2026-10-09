@@ -21,21 +21,21 @@ export default function Insights() {
               href={`/insights/${article.slug}`}
               className="group grid items-baseline gap-x-6 gap-y-3 border-b border-border py-7 transition-colors duration-300 hover:bg-elevated/70 md:grid-cols-12 md:py-8"
             >
-              <span className="font-sans text-[11px] text-muted md:col-span-2">
+              <span className="text-xs font-medium text-muted md:col-span-2">
                 {formatDate(article.date)}
               </span>
-              <span className="font-sans text-[11px] text-accent md:col-span-3">
+              <span className="text-xs font-medium text-accent md:col-span-3">
                 {article.category}
               </span>
               <span className="md:col-span-5">
-                <span className="display-title block text-xl leading-snug transition-transform duration-300 group-hover:translate-x-1.5 md:text-2xl">
+                <span className="font-display font-medium tracking-tight text-balance block text-xl transition-transform duration-300 group-hover:translate-x-1.5 md:text-2xl">
                   {article.title}
                 </span>
                 <span className="mt-2 block text-sm leading-relaxed text-muted">
                   {article.excerpt}
                 </span>
               </span>
-              <span className="flex items-center justify-between gap-4 font-sans text-[11px] text-muted md:col-span-2 md:justify-end">
+              <span className="flex items-center justify-between gap-4 text-xs font-medium text-muted md:col-span-2 md:justify-end">
                 {article.readingTime}
                 <span
                   className="text-muted/60 transition-all duration-300 group-hover:translate-x-1 group-hover:text-accent"

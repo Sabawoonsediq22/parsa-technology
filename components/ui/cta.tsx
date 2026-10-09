@@ -35,17 +35,17 @@ export default function Cta({
             aria-hidden="true"
           />
 
-          <p className="font-sans text-[11px] text-white/75">
+          <p className="text-xs font-medium text-white/75">
             — {label}
           </p>
 
-          <h2 className="display-title mt-6 max-w-5xl text-[clamp(2.4rem,7vw,6rem)] leading-[0.93]">
+          <h2 className="font-display font-medium tracking-tight text-balance mt-6 max-w-5xl text-5xl md:text-7xl">
             {headline}
           </h2>
 
           <Link
             href={linkHref}
-            className="group/cta mt-10 inline-flex items-center gap-4 border border-white/60 px-6 py-4 font-sans text-[11px] leading-none text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-accent md:mt-12"
+            className="group/cta mt-10 inline-flex items-center gap-4 border border-white/60 px-6 py-4 text-sm font-medium leading-none text-white transition-colors duration-300 hover:border-white hover:bg-white hover:text-accent md:mt-12"
           >
             {linkLabel}
             <svg

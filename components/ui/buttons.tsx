@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 
 const base =
-  "group/btn inline-flex items-center justify-center gap-3 rounded-none border font-sans text-[11px] leading-none transition-colors duration-300";
+  "group/btn inline-flex items-center justify-center gap-3 rounded-none border text-sm font-medium leading-none transition-colors duration-300";
 
 function Arrow({ className = "" }: { className?: string }) {
   return (
@@ -81,7 +81,7 @@ export function ArrowLink({
   return (
     <Link
       href={href}
-      className={`group/arrow inline-flex items-center gap-3 font-sans text-[11px] text-foreground transition-colors hover:text-accent ${className}`}
+      className={`group/arrow inline-flex items-center gap-3 text-sm font-medium text-foreground transition-colors hover:text-accent ${className}`}
     >
       <span className="flex h-11 w-11 items-center justify-center border border-border transition-colors group-hover/arrow:border-accent group-hover/arrow:bg-accent group-hover/arrow:text-white">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
@@ -110,7 +110,7 @@ export function TextLink({
   return (
     <Link
       href={href}
-      className={`link-slide inline-block font-sans text-[11px] text-muted transition-colors hover:text-accent ${className}`}
+      className={`link-slide inline-block text-sm font-medium text-muted transition-colors hover:text-accent ${className}`}
     >
       {children}
     </Link>

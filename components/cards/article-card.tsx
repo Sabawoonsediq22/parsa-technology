@@ -24,14 +24,14 @@ export default function ArticleCard({
           ratio="pt-[70%] md:pt-[72%]"
           className="mb-5"
         />
-        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 font-sans text-[11px]">
+        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium">
           <span className="text-accent">{article.category}</span>
           <span className="text-muted/50">/</span>
           <span className="text-muted">{formatDate(article.date)}</span>
           <span className="text-muted/50">/</span>
           <span className="text-muted">{article.readingTime}</span>
         </div>
-        <h3 className="display-title mt-4 text-xl leading-snug transition-colors duration-300 group-hover:text-accent md:text-2xl">
+        <h3 className="font-display font-medium tracking-tight text-balance mt-4 text-xl transition-colors duration-300 group-hover:text-accent md:text-2xl">
           {article.title}
         </h3>
         {showExcerpt ? (
@@ -39,7 +39,7 @@ export default function ArticleCard({
             {article.excerpt}
           </p>
         ) : null}
-        <span className="mt-5 flex w-full items-center justify-between gap-3 border-t border-border pt-4 font-sans text-[11px] text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
+        <span className="mt-5 flex w-full items-center justify-between gap-3 border-t border-border pt-4 text-sm font-medium text-muted transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
           Read article
           <span className="transition-transform duration-300 group-hover:translate-x-1">
             →
