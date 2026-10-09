@@ -112,7 +112,9 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-2 md:gap-3">
-          <ThemeToggle />
+          <span className="hidden lg:inline-flex">
+            <ThemeToggle />
+          </span>
           <Link
             href="/contact"
             className="hidden border border-accent bg-accent px-5 py-3 text-sm font-medium leading-none text-white transition-colors duration-300 hover:border-foreground hover:bg-foreground hover:text-background md:inline-flex"
@@ -157,7 +159,7 @@ export default function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={reduceMotion ? { opacity: 0 } : { opacity: 0, y: -16 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="blueprint min-h-screen overflow-y-auto border-t border-border bg-background lg:hidden"
+            className="min-h-screen overflow-y-auto border-t border-border bg-background lg:hidden"
           >
             <nav
               aria-label="Mobile"
@@ -169,7 +171,9 @@ export default function Header() {
                   href={item.href}
                   onClick={closeMenu}
                   aria-current={pathname === item.href ? "page" : undefined}
-                  className="group flex items-baseline gap-5 border-border py-5"
+                  className={`group flex items-baseline gap-5 py-5 ${
+                    index < site.nav.length - 1 ? "border-b border-border" : ""
+                  }`}
                 >
                   <span className="text-xs font-medium text-accent">
                     {String(index + 1).padStart(2, "0")}
@@ -192,6 +196,9 @@ export default function Header() {
                 <a href={`tel:${site.phoneHref}`} className="hover:text-accent">
                   {site.phone}
                 </a>
+              </div>
+              <div className="border-t border-border py-6">
+                <ThemeToggle />
               </div>
             </nav>
           </motion.div>

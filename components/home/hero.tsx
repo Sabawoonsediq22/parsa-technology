@@ -11,7 +11,7 @@ export default function Hero() {
   const ease: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
   return (
-    <section className="relative flex min-h-svh flex-col justify-end overflow-hidden pb-18 pt-32 md:pb-28 md:pt-40">
+    <section className="relative flex min-h-svh flex-col justify-center overflow-hidden pb-18 pt-24 md:justify-end md:pb-28 md:pt-40">
       <div
         className="blueprint absolute inset-0"
         aria-hidden="true"
@@ -25,7 +25,7 @@ export default function Hero() {
         style={{ backgroundColor: "var(--app-glow)" }}
       />
 
-      <div className="shell relative flex flex-1 flex-col justify-end px-6 md:px-12">
+      <div className="shell relative flex flex-1 flex-col justify-center px-6 md:justify-end md:px-12">
         <motion.div
           initial={reduceMotion ? false : { opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
