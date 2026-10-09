@@ -707,7 +707,7 @@ export const contactChannels: ContactChannel[] = [
     detail: "For briefs, proposals and everything in between.",
   },
   {
-    label: "Phone",
+    label: "Phone & Whatsapp",
     value: site.phone,
     href: `tel:${site.phoneHref}`,
     detail: "Saturday to Thursday",
