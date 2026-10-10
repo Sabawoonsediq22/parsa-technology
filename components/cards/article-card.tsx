@@ -23,6 +23,9 @@ export default function ArticleCard({
           label={article.category}
           ratio="pt-[70%] md:pt-[72%]"
           className="mb-5"
+          image={article.image}
+          imageAlt={`${article.title} — ${article.category}`}
+          sizes="(min-width: 768px) 33vw, 100vw"
         />
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium">
           <span className="text-accent">{article.category}</span>

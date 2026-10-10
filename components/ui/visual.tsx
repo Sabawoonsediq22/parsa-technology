@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import Image, { type StaticImageData } from "next/image";
 
 type VisualProps = {
   index: string;
@@ -7,6 +8,9 @@ type VisualProps = {
   ratio?: string;
   className?: string;
   children?: ReactNode;
+  image?: StaticImageData;
+  imageAlt?: string;
+  sizes?: string;
 };
 
 const dotGrid = Array.from({ length: 14 }, (_, col) =>
@@ -122,6 +126,9 @@ export default function Visual({
   ratio = "pt-[62%]",
   className = "",
   children,
+  image,
+  imageAlt,
+  sizes = "(min-width: 768px) 50vw, 100vw",
 }: VisualProps) {
   const motif = motifs[parseInt(index, 10) % motifs.length] ?? motifs[0];
 
@@ -130,37 +137,55 @@ export default function Visual({
       className={`group/visual relative overflow-hidden border border-border bg-linear-to-br from-elevated via-surface to-background ${className}`}
     >
       <div className={`relative ${ratio}`}>
-        <div className="absolute inset-0" aria-hidden="true">
-          <div className="blueprint-fine absolute inset-0 opacity-60" />
-          <div
-            className="absolute -right-20 -top-24 h-64 w-64 rounded-full blur-3xl"
-            style={{ backgroundColor: "var(--app-glow)" }}
-          />
-          <svg
-            className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover/visual:scale-105"
-            viewBox="0 0 400 250"
-            preserveAspectRatio="xMidYMid slice"
-            fill="none"
-          >
-            {motif}
-          </svg>
-          <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10" />
-        </div>
+        {image ? (
+          <>
+            <Image
+              src={image}
+              alt={imageAlt ?? label ?? ""}
+              fill
+              sizes={sizes}
+              className="object-cover transition-transform duration-700 group-hover/visual:scale-105"
+            />
+            <div
+              className="absolute inset-0 bg-linear-to-t from-black/60 via-black/10 to-black/30"
+              aria-hidden="true"
+            />
+          </>
+        ) : (
+          <div className="absolute inset-0" aria-hidden="true">
+            <div className="blueprint-fine absolute inset-0 opacity-60" />
+            <div
+              className="absolute -right-20 -top-24 h-64 w-64 rounded-full blur-3xl"
+              style={{ backgroundColor: "var(--app-glow)" }}
+            />
+            <svg
+              className="absolute inset-0 h-full w-full transition-transform duration-700 group-hover/visual:scale-105"
+              viewBox="0 0 400 250"
+              preserveAspectRatio="xMidYMid slice"
+              fill="none"
+            >
+              {motif}
+            </svg>
+            <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/25 to-black/10" />
+          </div>
+        )}
 
         <div className="absolute inset-x-0 top-0 flex items-center justify-between border-b border-white/15 px-4 py-2.5 text-xs font-medium text-white/70">
           <span className="truncate">{label ?? "Parsa Technology"}</span>
           <span className="ml-3 shrink-0 text-accent">{year ?? index}</span>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-6">
-          <span
-            className="font-display text-5xl font-medium leading-none md:text-7xl"
-            style={{ WebkitTextStroke: "1px rgba(255,255,255,0.6)", color: "transparent" }}
-          >
-            {index}
-          </span>
-          <span className="mb-2 h-2 w-2 bg-accent" />
-        </div>
+        {image ? null : (
+          <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 md:p-6">
+            <span
+              className="font-display text-5xl font-medium leading-none md:text-7xl"
+              style={{ WebkitTextStroke: "1px rgba(255,255,255,0.6)", color: "transparent" }}
+            >
+              {index}
+            </span>
+            <span className="mb-2 h-2 w-2 bg-accent" />
+          </div>
+        )}
 
         {children}
       </div>

@@ -2,6 +2,18 @@ import type { StaticImageData } from "next/image";
 import shirazkhanPhoto from "@/components/home/images/shirazkhannaseri.jpg";
 import raqeebPhoto from "@/components/home/images/raqeeb-khwaja.jpeg";
 import hijratullahPhoto from "@/components/home/images/Hijratullah.jpg";
+import attendlyImage from "@/images/projects/attendly-attendance-system.png";
+import khwajaDentalImage from "@/images/projects/khwaja-dental-management.jpeg";
+import businessManagementImage from "@/images/projects/business-management-platform.jpeg";
+import companyWebsitesImage from "@/images/projects/company-websites.jpeg";
+import fleetFieldImage from "@/images/projects/fleet-field-operations-app.jpeg";
+import inventoryPosImage from "@/images/projects/inventory-point-of-sale.jpeg";
+import nextjsProductionImage from "@/images/articles/nextjs-in-production-decisions-that-matter.png";
+import typedStacksImage from "@/images/articles/why-typed-end-to-end-stacks-pay-for-themselves.png";
+import operationalInterfacesImage from "@/images/articles/designing-interfaces-for-operational-teams.jpg";
+import digitalTransformationImage from "@/images/articles/digital-transformation-without-the-disruption.jpg";
+import buildVsBuyImage from "@/images/articles/build-vs-buy-for-business-software.jpg";
+import desktopAppsImage from "@/images/articles/desktop-apps-are-back-and-lighter-than-ever.jpg";
 
 export const site = {
   name: "Parsa Technology",
@@ -104,6 +116,7 @@ export type Project = {
   outcome: string;
   stack: string[];
   featured: boolean;
+  image?: StaticImageData;
 };
 
 export const projects: Project[] = [
@@ -122,6 +135,7 @@ export const projects: Project[] = [
       "Payroll preparation dropped from three days to a single afternoon, and attendance disputes are now settled from an audit trail instead of memory.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "Tailwind CSS"],
     featured: true,
+    image: attendlyImage,
   },
   {
     slug: "khwaja-dental-management",
@@ -138,6 +152,7 @@ export const projects: Project[] = [
       "Front-desk handling time fell noticeably, no-shows dropped with automated reminders, and clinicians reach full history before the patient sits down.",
     stack: ["React.js", "TypeScript", "Rust", "SQLite"],
     featured: true,
+    image: khwajaDentalImage,
   },
   {
     slug: "business-management-platform",
@@ -154,6 +169,7 @@ export const projects: Project[] = [
       "Reporting moved from weekly to real time, and one shared dataset ended the reconciliation meetings entirely.",
     stack: ["React", "Next.js", "Node.js", "PostgreSQL"],
     featured: false,
+    image: businessManagementImage,
   },
   {
     slug: "company-websites",
@@ -170,6 +186,7 @@ export const projects: Project[] = [
       "Every site ships with sub-second loads, Lighthouse scores in the high nineties and a content model the marketing team updates without developers.",
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     featured: false,
+    image: companyWebsitesImage,
   },
   {
     slug: "fleet-field-operations-app",
@@ -186,6 +203,7 @@ export const projects: Project[] = [
       "Delivery status became visible in real time, disputes resolved with photo evidence, and dispatch calls dropped by more than half.",
     stack: ["React Native", "TypeScript", "SQLite", "Express.js"],
     featured: false,
+    image: fleetFieldImage,
   },
   {
     slug: "inventory-point-of-sale",
@@ -202,6 +220,7 @@ export const projects: Project[] = [
       "Stores kept trading through outages, and stock accuracy improved enough to reduce costly emergency reorders.",
     stack: ["Tauri", "TypeScript", "SQLite", "Rust"],
     featured: false,
+    image: inventoryPosImage,
   },
 ];
 
@@ -297,6 +316,7 @@ export type Article = {
   date: string;
   readingTime: string;
   body: ArticleBlock[];
+  image?: StaticImageData;
 };
 
 export const articles: Article[] = [
@@ -308,6 +328,7 @@ export const articles: Article[] = [
     category: "Software Development",
     date: "2026-09-14",
     readingTime: "6 min read",
+    image: typedStacksImage,
     body: [
       {
         type: "p",
@@ -348,6 +369,7 @@ export const articles: Article[] = [
     category: "Web Technologies",
     date: "2026-08-03",
     readingTime: "7 min read",
+    image: nextjsProductionImage,
     body: [
       {
         type: "p",
@@ -387,6 +409,7 @@ export const articles: Article[] = [
     category: "UI/UX Design",
     date: "2026-07-18",
     readingTime: "5 min read",
+    image: operationalInterfacesImage,
     body: [
       {
         type: "p",
@@ -427,6 +450,7 @@ export const articles: Article[] = [
     category: "Digital Transformation",
     date: "2026-05-27",
     readingTime: "6 min read",
+    image: digitalTransformationImage,
     body: [
       {
         type: "p",
@@ -467,6 +491,7 @@ export const articles: Article[] = [
     category: "Business Software Solutions",
     date: "2026-04-09",
     readingTime: "5 min read",
+    image: buildVsBuyImage,
     body: [
       {
         type: "p",
@@ -507,6 +532,7 @@ export const articles: Article[] = [
     category: "Software Development",
     date: "2026-02-21",
     readingTime: "4 min read",
+    image: desktopAppsImage,
     body: [
       {
         type: "p",

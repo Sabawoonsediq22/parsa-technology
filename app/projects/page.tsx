@@ -5,12 +5,39 @@ import Cta from "@/components/ui/cta";
 import ProjectCard from "@/components/cards/project-card";
 import FeaturedProject from "@/components/projects/featured-project";
 import Reveal from "@/components/ui/reveal";
-import { getFeaturedProjects, projects } from "@/lib/content";
+import { getFeaturedProjects, projects, site } from "@/lib/content";
+import attendlyImage from "@/images/projects/attendly-attendance-system.png";
 
 export const metadata: Metadata = {
   title: "Projects",
   description:
     "Selected work from Parsa Technology — attendance systems, clinic management platforms, business software, websites, mobile apps and desktop tools.",
+  openGraph: {
+    title: `Projects — ${site.name}`,
+    description:
+      "Selected work from Parsa Technology — attendance systems, clinic management platforms, business software, websites, mobile apps and desktop tools.",
+    url: "/projects",
+    images: [
+      {
+        url: attendlyImage.src,
+        width: attendlyImage.width,
+        height: attendlyImage.height,
+        alt: "Attendly Attendance System — shift and attendance platform",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Projects — ${site.name}`,
+    description:
+      "Selected work from Parsa Technology — attendance systems, clinic management platforms, business software, websites, mobile apps and desktop tools.",
+    images: [
+      {
+        url: attendlyImage.src,
+        alt: "Attendly Attendance System — shift and attendance platform",
+      },
+    ],
+  },
 };
 
 export default function ProjectsPage() {

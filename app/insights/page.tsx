@@ -40,6 +40,9 @@ export default function InsightsPage() {
                 index="01"
                 label={featured.category}
                 ratio="pt-[64%] md:pt-[58%]"
+                image={featured.image}
+                imageAlt={`${featured.title} — ${featured.category}`}
+                sizes="(min-width: 768px) 58vw, 100vw"
               />
             </div>
             <div className="flex flex-col justify-center md:col-span-5">

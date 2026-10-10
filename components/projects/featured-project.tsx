@@ -29,6 +29,9 @@ export default function FeaturedProject({
           year={project.year}
           label={project.tag}
           ratio="pt-[68%] md:pt-[60%]"
+          image={project.image}
+          imageAlt={`${project.name} — ${project.tag}`}
+          sizes="(min-width: 768px) 58vw, 100vw"
         />
       </Reveal>
 

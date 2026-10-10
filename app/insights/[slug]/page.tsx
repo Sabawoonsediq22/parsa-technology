@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import Cta from "@/components/ui/cta";
@@ -37,6 +38,33 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       description: article.excerpt,
       publishedTime: article.date,
       url: `/insights/${article.slug}`,
+      ...(article.image
+        ? {
+            images: [
+              {
+                url: article.image.src,
+                width: article.image.width,
+                height: article.image.height,
+                alt: `${article.title} — ${article.category}`,
+              },
+            ],
+          }
+        : {}),
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: article.title,
+      description: article.excerpt,
+      ...(article.image
+        ? {
+            images: [
+              {
+                url: article.image.src,
+                alt: `${article.title} — ${article.category}`,
+              },
+            ],
+          }
+        : {}),
     },
   };
 }
@@ -113,6 +141,20 @@ export default async function ArticlePage({ params }: Props) {
               {article.excerpt}
             </p>
           </Reveal>
+
+          {article.image ? (
+            <Reveal y={32} className="mt-12">
+              <div className="relative overflow-hidden border border-border">
+                <Image
+                  src={article.image}
+                  alt={`${article.title} — ${article.category}`}
+                  sizes="(min-width: 896px) 896px, 100vw"
+                  className="h-auto w-full object-cover"
+                  priority
+                />
+              </div>
+            </Reveal>
+          ) : null}
 
           <div className="mt-12">
             {article.body.map((block, index) => (
